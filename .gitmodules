@@ -1,0 +1,3 @@
+[submodule "schelling1971"]
+	path = schelling1971
+	url = git@github.com:akitenkrad/schelling1971.git
