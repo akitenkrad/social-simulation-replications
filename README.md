@@ -7,7 +7,7 @@
 
 | 論文 | ディレクトリ | 言語 | 概要 |
 |------|-------------|------|------|
-| Schelling (1971) "Dynamic Models of Segregation" | [schelling1971](replications/schelling1971/) | Rust + Python | エージェントベースの居住分離モデル．グリッド上のエージェントが近傍の同色比率に基づいて移動し，マクロな分離パターンが創発する過程を再現 |
+| Schelling (1971) "Dynamic Models of Segregation" | [schelling1971](https://github.com/akitenkrad/schelling1971) | Rust + Python | エージェントベースの居住分離モデル．グリッド上のエージェントが近傍の同色比率に基づいて移動し，マクロな分離パターンが創発する過程を再現 |
 
 ## Getting Started
 
