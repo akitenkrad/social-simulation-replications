@@ -1,3 +1,6 @@
 [submodule "replications/schelling1971"]
 	path = replications/schelling1971
 	url = git@github.com:akitenkrad/schelling1971.git
+[submodule "replications/axelrod1997"]
+	path = replications/axelrod1997
+	url = git@github.com:akitenkrad/axelrod1997.git
