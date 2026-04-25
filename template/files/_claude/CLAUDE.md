@@ -24,6 +24,9 @@ cargo run --release -- sweep [args...]
 uv sync
 uv run {{NAME}}-tools visualize [args...]
 
+# スイープ結果の可視化（パラメータ依存図 + 組み合わせ別グリッドアニメーション）
+uv run {{NAME}}-tools visualize-sweep [args...]
+
 # 既存実行結果の設定値を表示（run/sweep どちらも自動判別）
 uv run {{NAME}}-tools show-experiment-settings --results-dir results/latest
 ```
@@ -53,11 +56,12 @@ cargo fmt --check
 
 - **cli.py** — `{{NAME}}-tools` コマンドの統合エントリポイント．argparse のサブパーサで各サブコマンドにディスパッチ．
 - **visualize.py** — 単一実行の可視化．`results/latest/` 配下を読み込んで図を生成．
+- **visualize_sweep.py** — スイープ結果の可視化．`sweep_summary.csv` を読み込み，1D/2D の関係図を生成．加えて各パラメータ組み合わせの run のスナップショットを格子状に並べた合成 GIF (`sweep_grid_animation.gif`) を生成する（2D は行=2nd-axis, 列=1st-axis に配置；1D は矩形に折りたたむ；収束ステップが異なる run は最終フレームで pad；スナップショットが無い run は空セル）．`--no-grid-animation`/`--grid-seed`/`--fps`/`--max-frames` で挙動を調整．参考実装: `replications/schelling1971/`．
 - **show_experiment_settings.py** — 実行結果ディレクトリの `config.json` (run) または `sweep_config.json` (sweep) を読んで整形表示する．`--json` 出力に対応．論文再現実験定義の一覧表示モードは `reproduce_paper.py` を別途実装したら拡張可能（`schelling1971` 参照）．
 
 ### 出力構造
 
-各実行はタイムスタンプ付きサブディレクトリに保存される．`results/latest` は最新の実行へのシンボリックリンク．`run` は `config.json`，`sweep` は `sweep_config.json` を生成する．
+各実行はタイムスタンプ付きサブディレクトリに保存される．`results/latest` は最新の実行へのシンボリックリンク．`run` は `config.json`，`sweep` は `sweep_config.json` を生成する．`sweep` の各 run サブディレクトリは `--snapshot-interval N` (N>0) を指定すると `snapshots/step_*.csv` を出力する（`visualize-sweep` の組み合わせ別グリッドアニメーションが必要とする）．
 
 ## Key Design Decisions
 

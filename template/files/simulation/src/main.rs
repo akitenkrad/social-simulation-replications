@@ -27,6 +27,10 @@ fn main() {
         Commands::Sweep => {
             // TODO: implement sweep
             // スイープ設定を `<output_dir>/sweep_config.json` に書き出すこと．
+            // `--snapshot-interval N` (N>0) を受け付け，各 run サブディレクトリに
+            // `snapshots/step_*.csv` を出力する経路を用意すること．
+            // `{{NAME}}-tools visualize-sweep` の組み合わせ別グリッドアニメーションが
+            // この snapshots を必要とする．
             println!("TODO: implement sweep");
         }
     }

@@ -22,8 +22,14 @@ cargo run --release -- sweep --help
 uv sync
 uv run {{NAME}}-tools --help
 uv run {{NAME}}-tools visualize --help
+uv run {{NAME}}-tools visualize-sweep --help
 uv run {{NAME}}-tools show-experiment-settings --results-dir results/latest
 ```
+
+`visualize-sweep` はパラメータ依存図に加えて，各パラメータ組み合わせを格子状に並べた
+進行アニメーション (`sweep_grid_animation.gif`) を生成する．これは sweep を
+`--snapshot-interval N` (N>0) 付きで実行した場合のみ生成される（スナップショットが
+無ければ警告のみ出してスキップ）．
 
 ## テスト & Lint
 

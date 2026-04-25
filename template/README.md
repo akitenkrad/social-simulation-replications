@@ -22,6 +22,7 @@ template/
             ├── __init__.py
             ├── cli.py
             ├── visualize.py
+            ├── visualize_sweep.py             ← スイープ可視化 + 組み合わせ別グリッドアニメーション
             └── show_experiment_settings.py  ← 実行結果の config.json 表示
 ```
 
@@ -84,8 +85,9 @@ uv run axelrod-tools --help
 ## 留意点
 
 - テンプレート状態のファイル（`{{NAME}}` 未置換）は単独で実行できない．特に Python の import 文に placeholder が含まれるため，置換前は構文上有効でもランタイムエラーになる．
-- `simulation/src/main.rs` には clap の `run` / `sweep` サブコマンド分岐の最小骨格だけが含まれる．シミュレーションロジックは各論文ごとに実装する．`run` は `<output_dir>/config.json`，`sweep` は `<output_dir>/sweep_config.json` を必ず書き出すこと（`show-experiment-settings` が読む）．
-- `tools/src/<name>_tools/cli.py` は `visualize` / `show-experiment-settings` サブコマンドへのディスパッチ骨格．`reproduce` などの論文固有サブコマンドは必要に応じて追加する．
+- `simulation/src/main.rs` には clap の `run` / `sweep` サブコマンド分岐の最小骨格だけが含まれる．シミュレーションロジックは各論文ごとに実装する．`run` は `<output_dir>/config.json`，`sweep` は `<output_dir>/sweep_config.json` を必ず書き出すこと（`show-experiment-settings` が読む）．`sweep` 側に `--snapshot-interval N` (N>0) で各 run の `snapshots/step_*.csv` を出力する経路を用意しておくこと（`visualize-sweep` の組み合わせ別グリッドアニメーションが必要とする）．
+- `tools/src/<name>_tools/cli.py` は `visualize` / `visualize-sweep` / `show-experiment-settings` サブコマンドへのディスパッチ骨格．`reproduce` などの論文固有サブコマンドは必要に応じて追加する．
+- `visualize_sweep.py` は CLI 骨格と設計指針コメントだけを持つ TODO ファイル．パラメータ依存図と組み合わせ別グリッドアニメーション (`sweep_grid_animation.gif`) の実装は各論文で埋める（参考実装: `replications/schelling1971/`）．
 - `show_experiment_settings.py` は汎用の `--results-dir` モードのみを持つ．論文再現実験定義の一覧表示が必要な場合は `reproduce_paper.py` を作成し，そこから `Experiment` / `paper_experiments()` をインポートして拡張する（`replications/schelling1971/` 参照）．
 - `_claude/` は親リポジトリの `.gitignore`（`.claude/` 全体を除外）を回避するための仮名．コピー後は必ず `.claude/` にリネームすること．
 - リファレンス実装は `replications/schelling1971/` を参照．
