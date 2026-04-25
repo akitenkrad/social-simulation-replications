@@ -22,6 +22,7 @@ cargo run --release -- sweep --help
 uv sync
 uv run {{NAME}}-tools --help
 uv run {{NAME}}-tools visualize --help
+uv run {{NAME}}-tools show-experiment-settings --results-dir results/latest
 ```
 
 ## テスト & Lint
@@ -41,6 +42,7 @@ results/
 ├── latest -> 20260101_120000
 ├── 20260101_120000/
 │   ├── metrics.csv
+│   ├── config.json          ← 実行時の設定値（show-experiment-settings で表示可能）
 │   └── snapshots/
 └── ...
 ```

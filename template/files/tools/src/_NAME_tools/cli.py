@@ -2,6 +2,7 @@
 
 Usage:
     {{NAME}}-tools visualize [...]
+    {{NAME}}-tools show-experiment-settings [...]
 """
 from __future__ import annotations
 
@@ -16,6 +17,11 @@ def main(argv: list[str] | None = None) -> None:
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("visualize", help="単一実行結果の可視化", add_help=False)
+    subparsers.add_parser(
+        "show-experiment-settings",
+        help="実行結果ディレクトリの設定値を表示 (config.json / sweep_config.json)",
+        add_help=False,
+    )
 
     argv = sys.argv[1:] if argv is None else argv
     if not argv or argv[0] in {"-h", "--help"}:
@@ -26,6 +32,9 @@ def main(argv: list[str] | None = None) -> None:
     rest = argv[1:]
     if command == "visualize":
         from {{NAME}}_tools.visualize import main as run_main
+        run_main(rest)
+    elif command == "show-experiment-settings":
+        from {{NAME}}_tools.show_experiment_settings import main as run_main
         run_main(rest)
     else:
         parser.parse_args(argv)  # 不正なサブコマンドはここでエラーになる

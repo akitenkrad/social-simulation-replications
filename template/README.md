@@ -21,7 +21,8 @@ template/
         └── src/_NAME_tools/       ← {NAME}_tools にリネーム必要
             ├── __init__.py
             ├── cli.py
-            └── visualize.py
+            ├── visualize.py
+            └── show_experiment_settings.py  ← 実行結果の config.json 表示
 ```
 
 ## プレースホルダ
@@ -83,8 +84,9 @@ uv run axelrod-tools --help
 ## 留意点
 
 - テンプレート状態のファイル（`{{NAME}}` 未置換）は単独で実行できない．特に Python の import 文に placeholder が含まれるため，置換前は構文上有効でもランタイムエラーになる．
-- `simulation/src/main.rs` には clap の `run` / `sweep` サブコマンド分岐の最小骨格だけが含まれる．シミュレーションロジックは各論文ごとに実装する．
-- `tools/src/<name>_tools/cli.py` は `visualize` サブコマンドへのディスパッチ骨格．`reproduce` などのサブコマンドは必要に応じて追加する．
+- `simulation/src/main.rs` には clap の `run` / `sweep` サブコマンド分岐の最小骨格だけが含まれる．シミュレーションロジックは各論文ごとに実装する．`run` は `<output_dir>/config.json`，`sweep` は `<output_dir>/sweep_config.json` を必ず書き出すこと（`show-experiment-settings` が読む）．
+- `tools/src/<name>_tools/cli.py` は `visualize` / `show-experiment-settings` サブコマンドへのディスパッチ骨格．`reproduce` などの論文固有サブコマンドは必要に応じて追加する．
+- `show_experiment_settings.py` は汎用の `--results-dir` モードのみを持つ．論文再現実験定義の一覧表示が必要な場合は `reproduce_paper.py` を作成し，そこから `Experiment` / `paper_experiments()` をインポートして拡張する（`replications/schelling1971/` 参照）．
 - `_claude/` は親リポジトリの `.gitignore`（`.claude/` 全体を除外）を回避するための仮名．コピー後は必ず `.claude/` にリネームすること．
 - リファレンス実装は `replications/schelling1971/` を参照．
 

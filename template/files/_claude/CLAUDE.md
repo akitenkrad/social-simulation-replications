@@ -23,6 +23,9 @@ cargo run --release -- sweep [args...]
 # 可視化
 uv sync
 uv run {{NAME}}-tools visualize [args...]
+
+# 既存実行結果の設定値を表示（run/sweep どちらも自動判別）
+uv run {{NAME}}-tools show-experiment-settings --results-dir results/latest
 ```
 
 ## Testing & Linting
@@ -44,16 +47,17 @@ cargo fmt --check
 
 ### Rust (simulation/src/)
 
-- **main.rs** — CLI エントリポイント．clap の `run` / `sweep` サブコマンド分岐．論文固有のシミュレーションロジックを実装する．
+- **main.rs** — CLI エントリポイント．clap の `run` / `sweep` サブコマンド分岐．論文固有のシミュレーションロジックを実装する．`run` 実装時は出力ディレクトリに `config.json` を，`sweep` 実装時は `sweep_config.json` を必ず書き出すこと（`show-experiment-settings` がこれを読む）．
 
 ### Python (tools/src/{{NAME}}_tools/)
 
 - **cli.py** — `{{NAME}}-tools` コマンドの統合エントリポイント．argparse のサブパーサで各サブコマンドにディスパッチ．
 - **visualize.py** — 単一実行の可視化．`results/latest/` 配下を読み込んで図を生成．
+- **show_experiment_settings.py** — 実行結果ディレクトリの `config.json` (run) または `sweep_config.json` (sweep) を読んで整形表示する．`--json` 出力に対応．論文再現実験定義の一覧表示モードは `reproduce_paper.py` を別途実装したら拡張可能（`schelling1971` 参照）．
 
 ### 出力構造
 
-各実行はタイムスタンプ付きサブディレクトリに保存される．`results/latest` は最新の実行へのシンボリックリンク．
+各実行はタイムスタンプ付きサブディレクトリに保存される．`results/latest` は最新の実行へのシンボリックリンク．`run` は `config.json`，`sweep` は `sweep_config.json` を生成する．
 
 ## Key Design Decisions
 
