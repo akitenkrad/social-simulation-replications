@@ -7,6 +7,6 @@
 [submodule "simulators/rs-othello-sim"]
 	path = simulators/rs-othello-sim
 	url = git@github.com:akitenkrad/rs-othello-sim.git
-[submodule "replications/replication-logistello"]
-	path = replications/replication-logistello
+[submodule "replications/logistello"]
+	path = replications/logistello
 	url = git@github.com:akitenkrad/rs-logistello.git
