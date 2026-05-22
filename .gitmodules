@@ -10,3 +10,6 @@
 [submodule "replications/logistello"]
 	path = replications/logistello
 	url = git@github.com:akitenkrad/rs-logistello.git
+[submodule "simulators/rs-social-simulation-tools"]
+	path = simulators/rs-social-simulation-tools
+	url = git@github.com:akitenkrad/rs-social-simulation-tools.git
