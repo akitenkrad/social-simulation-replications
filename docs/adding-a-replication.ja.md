@@ -1,6 +1,6 @@
-# Replication Project Template
+[English](adding-a-replication.md) | **日本語**
 
-> 親リポジトリ向けの解説は [docs/adding-a-replication.ja.md](../docs/adding-a-replication.ja.md) を参照．
+# Replication の追加方法
 
 社会科学系の古典的論文の再現実装プロジェクト用テンプレート．Cargo workspace + uv workspace の 2 プロジェクト構成（Rust シミュレーション + Python ツール）の雛形を提供する．
 
