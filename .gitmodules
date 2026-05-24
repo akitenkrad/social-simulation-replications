@@ -16,3 +16,6 @@
 [submodule "replications/hegselmann2005"]
 	path = replications/hegselmann2005
 	url = git@github.com:akitenkrad/hegselmann2005.git
+[submodule "replications/granovetter1973"]
+	path = replications/granovetter1973
+	url = git@github.com:akitenkrad/granovetter1973.git
