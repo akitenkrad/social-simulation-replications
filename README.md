@@ -16,6 +16,7 @@ A collection of replication implementations of classic social-science simulation
 | Granovetter (1973), "The Strength of Weak Ties" | [granovetter1973](https://github.com/akitenkrad/granovetter1973) |
 | Chuang et al. (2024), "Simulating Opinion Dynamics with Networks of LLM-based Agents" | [chuang2024](https://github.com/akitenkrad/chuang2024) |
 | Li et al. (2024), "EconAgent: LLM-Empowered Agents for Simulating Macroeconomic Activities" | [li2024](https://github.com/akitenkrad/li2024) |
+| Gao et al. (2023), "S3: Social-network Simulation System with LLM-Empowered Agents" | [gao2023](https://github.com/akitenkrad/gao2023) |
 | Buro (1994–1999), "Logistello" (7 papers) | [logistello](https://github.com/akitenkrad/rs-logistello) |
 
 ## Simulators
