@@ -28,3 +28,6 @@
 [submodule "replications/gao2023"]
 	path = replications/gao2023
 	url = git@github.com:akitenkrad/gao2023.git
+[submodule "replications/ren2024"]
+	path = replications/ren2024
+	url = git@github.com:akitenkrad/ren2024.git
