@@ -12,6 +12,7 @@
 |------|-------------|
 | Schelling (1971) "Dynamic Models of Segregation" | [schelling1971](https://github.com/akitenkrad/schelling1971) |
 | Axelrod (1997) "The Dissemination of Culture" | [axelrod1997](https://github.com/akitenkrad/axelrod1997) |
+| Hegselmann & Krause (2005) "Opinion Dynamics Driven by Various Ways of Averaging" | [hegselmann2005](https://github.com/akitenkrad/hegselmann2005) |
 | Buro (1994–1999) "Logistello"（7論文） | [logistello](https://github.com/akitenkrad/rs-logistello) |
 
 ## Simulators
