@@ -22,3 +22,6 @@
 [submodule "replications/chuang2024"]
 	path = replications/chuang2024
 	url = git@github.com:akitenkrad/chuang2024.git
+[submodule "replications/li2024"]
+	path = replications/li2024
+	url = git@github.com:akitenkrad/li2024.git

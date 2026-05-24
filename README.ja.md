@@ -15,6 +15,7 @@
 | Hegselmann & Krause (2005) "Opinion Dynamics Driven by Various Ways of Averaging" | [hegselmann2005](https://github.com/akitenkrad/hegselmann2005) |
 | Granovetter (1973) "The Strength of Weak Ties" | [granovetter1973](https://github.com/akitenkrad/granovetter1973) |
 | Chuang et al. (2024) "Simulating Opinion Dynamics with Networks of LLM-based Agents" | [chuang2024](https://github.com/akitenkrad/chuang2024) |
+| Li et al. (2024) "EconAgent: LLM-Empowered Agents for Simulating Macroeconomic Activities" | [li2024](https://github.com/akitenkrad/li2024) |
 | Buro (1994–1999) "Logistello"（7論文） | [logistello](https://github.com/akitenkrad/rs-logistello) |
 
 ## Simulators
