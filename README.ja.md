@@ -18,6 +18,7 @@
 | Li et al. (2024) "EconAgent: LLM-Empowered Agents for Simulating Macroeconomic Activities" | [li2024](https://github.com/akitenkrad/li2024) |
 | Gao et al. (2023) "S3: Social-network Simulation System with LLM-Empowered Agents" | [gao2023](https://github.com/akitenkrad/gao2023) |
 | Ren et al. (2024) "Emergence of Social Norms in Generative Agent Societies (CRSEC)" | [ren2024](https://github.com/akitenkrad/ren2024) |
+| Zhao et al. (2024) "CompeteAI: Understanding the Competition Dynamics of LLM-based Agents" | [zhao2024](https://github.com/akitenkrad/zhao2024) |
 | Buro (1994–1999) "Logistello"（7論文） | [logistello](https://github.com/akitenkrad/rs-logistello) |
 
 ## Simulators
