@@ -49,3 +49,6 @@
 [submodule "replications/han2023"]
 	path = replications/han2023
 	url = git@github.com:akitenkrad/han2023.git
+[submodule "replications/ji2024"]
+	path = replications/ji2024
+	url = git@github.com:akitenkrad/ji2024.git

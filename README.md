@@ -24,6 +24,7 @@ A collection of replication implementations of classic social-science simulation
 | Mou et al. (2024), "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)" | [mou2024](https://github.com/akitenkrad/mou2024) |
 | Wang et al. (2025), "YuLan-OneSim: Towards the Next Generation of Social Simulator with Large Language Models" | [wang2025](https://github.com/akitenkrad/wang2025) |
 | Han et al. (2023), "Guinea Pig Trials Utilizing GPT: A Smart Agent-Based Modeling Approach for Studying Firm Competition and Collusion (SABM)" | [han2023](https://github.com/akitenkrad/han2023) |
+| Ji et al. (2024), "SRAP-Agent: Simulating and Optimizing Scarce Resource Allocation Policy with LLM-based Agent" | [ji2024](https://github.com/akitenkrad/ji2024) |
 | Buro (1994–1999), "Logistello" (7 papers) | [logistello](https://github.com/akitenkrad/rs-logistello) |
 
 ## Simulators
