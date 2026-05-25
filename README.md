@@ -22,6 +22,7 @@ A collection of replication implementations of classic social-science simulation
 | Hua et al. (2024), "War and Peace (WarAgent): LLM-based Multi-Agent Simulation of World Wars" | [hua2024](https://github.com/akitenkrad/hua2024) |
 | Yang et al. (2024), "OASIS: Open Agent Social Interaction Simulations with One Million Agents" | [yang2024](https://github.com/akitenkrad/yang2024) |
 | Mou et al. (2024), "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)" | [mou2024](https://github.com/akitenkrad/mou2024) |
+| Wang et al. (2025), "YuLan-OneSim: Towards the Next Generation of Social Simulator with Large Language Models" | [wang2025](https://github.com/akitenkrad/wang2025) |
 | Buro (1994–1999), "Logistello" (7 papers) | [logistello](https://github.com/akitenkrad/rs-logistello) |
 
 ## Simulators

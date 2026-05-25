@@ -43,3 +43,6 @@
 [submodule "replications/mou2024"]
 	path = replications/mou2024
 	url = git@github.com:akitenkrad/mou2024.git
+[submodule "replications/wang2025"]
+	path = replications/wang2025
+	url = git@github.com:akitenkrad/wang2025.git
