@@ -20,6 +20,7 @@ A collection of replication implementations of classic social-science simulation
 | Ren et al. (2024), "Emergence of Social Norms in Generative Agent Societies (CRSEC)" | [ren2024](https://github.com/akitenkrad/ren2024) |
 | Zhao et al. (2024), "CompeteAI: Understanding the Competition Dynamics of LLM-based Agents" | [zhao2024](https://github.com/akitenkrad/zhao2024) |
 | Hua et al. (2024), "War and Peace (WarAgent): LLM-based Multi-Agent Simulation of World Wars" | [hua2024](https://github.com/akitenkrad/hua2024) |
+| Yang et al. (2024), "OASIS: Open Agent Social Interaction Simulations with One Million Agents" | [yang2024](https://github.com/akitenkrad/yang2024) |
 | Buro (1994–1999), "Logistello" (7 papers) | [logistello](https://github.com/akitenkrad/rs-logistello) |
 
 ## Simulators
