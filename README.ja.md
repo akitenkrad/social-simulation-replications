@@ -23,6 +23,7 @@
 | Yang et al. (2024) "OASIS: Open Agent Social Interaction Simulations with One Million Agents" | [yang2024](https://github.com/akitenkrad/yang2024) |
 | Mou et al. (2024) "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)" | [mou2024](https://github.com/akitenkrad/mou2024) |
 | Wang et al. (2025) "YuLan-OneSim: Towards the Next Generation of Social Simulator with Large Language Models" | [wang2025](https://github.com/akitenkrad/wang2025) |
+| Han et al. (2023) "Guinea Pig Trials Utilizing GPT: A Smart Agent-Based Modeling Approach for Studying Firm Competition and Collusion (SABM)" | [han2023](https://github.com/akitenkrad/han2023) |
 | Buro (1994–1999) "Logistello"（7論文） | [logistello](https://github.com/akitenkrad/rs-logistello) |
 
 ## Simulators
