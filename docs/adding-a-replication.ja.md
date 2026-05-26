@@ -69,6 +69,20 @@ uv sync
 uv run <name>-tools --help
 ```
 
+### 6. カタログへ登録
+
+`README.md`，`README.ja.md`，`docs/replications*.md` の Replication 一覧は，リポジトリルートの `replications.toml` から自動生成される．これらの表を手で編集してはならない．代わりに次の手順を行う：
+
+```bash
+# replications.toml に [[replication]] エントリを追記する（フィールド一覧は既存エントリを参照：
+# key, repo, author, year, year_display?, title, paradigm, domain, theme_en, theme_ja）．
+# その後，全カタログ対象を再生成する：
+python3 tools/gen_catalog.py
+
+# 内容が古くなっていないか確認する（CI 向け）：
+python3 tools/gen_catalog.py --check
+```
+
 ### 例: Axelrod (1997)
 
 ```bash

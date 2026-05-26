@@ -1,0 +1,205 @@
+# Single source of truth for the replication catalog.
+#
+# Edit this file, then regenerate the README tables and docs/replications*.md with:
+#
+#     python3 tools/gen_catalog.py
+#
+# Fields per [[replication]]:
+#   key          identifier (lowercase author+year, e.g. "schelling1971"); also the table label
+#   repo         GitHub repo name under github.com/akitenkrad/<repo> (usually == key)
+#   author       paper author string, kept in English (e.g. "Schelling", "Chuang et al.")
+#   year         integer publication year (used for sorting)
+#   year_display optional display string when the year is a range (e.g. "1994–1999")
+#   title        paper title, kept in English
+#   paradigm     one of: "classic-abm", "llm-social", "game-ai"
+#   domain       only for paradigm = "llm-social"; one of:
+#                "opinion-norms", "economy", "competition-conflict", "platform-scale"
+#   theme_en     short theme label (English)
+#   theme_ja     short theme label (Japanese)
+
+# --- Classic agent-based models -------------------------------------------------
+
+[[replication]]
+key = "schelling1971"
+repo = "schelling1971"
+author = "Schelling"
+year = 1971
+title = "Dynamic Models of Segregation"
+paradigm = "classic-abm"
+domain = ""
+theme_en = "Residential segregation"
+theme_ja = "住み分け（分居）"
+
+[[replication]]
+key = "granovetter1973"
+repo = "granovetter1973"
+author = "Granovetter"
+year = 1973
+title = "The Strength of Weak Ties"
+paradigm = "classic-abm"
+domain = ""
+theme_en = "Weak ties / networks"
+theme_ja = "弱い紐帯・ネットワーク"
+
+[[replication]]
+key = "axelrod1997"
+repo = "axelrod1997"
+author = "Axelrod"
+year = 1997
+title = "The Dissemination of Culture"
+paradigm = "classic-abm"
+domain = ""
+theme_en = "Cultural dissemination"
+theme_ja = "文化の伝播"
+
+[[replication]]
+key = "hegselmann2005"
+repo = "hegselmann2005"
+author = "Hegselmann & Krause"
+year = 2005
+title = "Opinion Dynamics Driven by Various Ways of Averaging"
+paradigm = "classic-abm"
+domain = ""
+theme_en = "Opinion dynamics"
+theme_ja = "意見ダイナミクス"
+
+# --- LLM-based social simulation ------------------------------------------------
+
+# domain: opinion-norms
+[[replication]]
+key = "chuang2024"
+repo = "chuang2024"
+author = "Chuang et al."
+year = 2024
+title = "Simulating Opinion Dynamics with Networks of LLM-based Agents"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Opinion dynamics"
+theme_ja = "意見ダイナミクス"
+
+[[replication]]
+key = "ren2024"
+repo = "ren2024"
+author = "Ren et al."
+year = 2024
+title = "Emergence of Social Norms in Generative Agent Societies (CRSEC)"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Social norms"
+theme_ja = "社会規範"
+
+[[replication]]
+key = "mou2024"
+repo = "mou2024"
+author = "Mou et al."
+year = 2024
+title = "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Social movements"
+theme_ja = "社会運動"
+
+# domain: economy
+[[replication]]
+key = "li2024"
+repo = "li2024"
+author = "Li et al."
+year = 2024
+title = "EconAgent: LLM-Empowered Agents for Simulating Macroeconomic Activities"
+paradigm = "llm-social"
+domain = "economy"
+theme_en = "Macroeconomics"
+theme_ja = "マクロ経済"
+
+[[replication]]
+key = "han2023"
+repo = "han2023"
+author = "Han et al."
+year = 2023
+title = "Guinea Pig Trials Utilizing GPT: A Smart Agent-Based Modeling Approach for Studying Firm Competition and Collusion (SABM)"
+paradigm = "llm-social"
+domain = "economy"
+theme_en = "Firm competition"
+theme_ja = "企業間競争・共謀"
+
+[[replication]]
+key = "ji2024"
+repo = "ji2024"
+author = "Ji et al."
+year = 2024
+title = "SRAP-Agent: Simulating and Optimizing Scarce Resource Allocation Policy with LLM-based Agent"
+paradigm = "llm-social"
+domain = "economy"
+theme_en = "Resource allocation"
+theme_ja = "資源配分"
+
+# domain: competition-conflict
+[[replication]]
+key = "zhao2024"
+repo = "zhao2024"
+author = "Zhao et al."
+year = 2024
+title = "CompeteAI: Understanding the Competition Dynamics of LLM-based Agents"
+paradigm = "llm-social"
+domain = "competition-conflict"
+theme_en = "Competition"
+theme_ja = "競争"
+
+[[replication]]
+key = "hua2024"
+repo = "hua2024"
+author = "Hua et al."
+year = 2024
+title = "War and Peace (WarAgent): LLM-based Multi-Agent Simulation of World Wars"
+paradigm = "llm-social"
+domain = "competition-conflict"
+theme_en = "International conflict"
+theme_ja = "国際紛争"
+
+# domain: platform-scale
+[[replication]]
+key = "gao2023"
+repo = "gao2023"
+author = "Gao et al."
+year = 2023
+title = "S3: Social-network Simulation System with LLM-Empowered Agents"
+paradigm = "llm-social"
+domain = "platform-scale"
+theme_en = "Social-network platform"
+theme_ja = "ソーシャルネットワーク基盤"
+
+[[replication]]
+key = "yang2024"
+repo = "yang2024"
+author = "Yang et al."
+year = 2024
+title = "OASIS: Open Agent Social Interaction Simulations with One Million Agents"
+paradigm = "llm-social"
+domain = "platform-scale"
+theme_en = "Large-scale platform"
+theme_ja = "大規模シミュレーション基盤"
+
+[[replication]]
+key = "wang2025"
+repo = "wang2025"
+author = "Wang et al."
+year = 2025
+title = "YuLan-OneSim: Towards the Next Generation of Social Simulator with Large Language Models"
+paradigm = "llm-social"
+domain = "platform-scale"
+theme_en = "Simulator platform"
+theme_ja = "シミュレータ基盤"
+
+# --- Game AI / other ------------------------------------------------------------
+
+[[replication]]
+key = "logistello"
+repo = "rs-logistello"
+author = "Buro"
+year = 1994
+year_display = "1994–1999"
+title = "Logistello (7 papers)"
+paradigm = "game-ai"
+domain = ""
+theme_en = "Othello game AI"
+theme_ja = "オセロのゲーム AI"

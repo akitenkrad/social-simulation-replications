@@ -69,6 +69,20 @@ uv sync
 uv run <name>-tools --help
 ```
 
+### 6. Register the replication in the catalog
+
+The replication tables in `README.md`, `README.ja.md`, and `docs/replications*.md` are auto-generated from `replications.toml` at the repo root. Do **not** edit those tables by hand. Instead:
+
+```bash
+# Append a [[replication]] entry to replications.toml (see existing entries for the
+# field list: key, repo, author, year, year_display?, title, paradigm, domain, theme_en, theme_ja)
+# then regenerate every catalog target:
+python3 tools/gen_catalog.py
+
+# Verify nothing is stale (useful in CI):
+python3 tools/gen_catalog.py --check
+```
+
 ### Example: Axelrod (1997)
 
 ```bash
