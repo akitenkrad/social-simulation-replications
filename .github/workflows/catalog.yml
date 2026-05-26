@@ -1,0 +1,34 @@
+name: catalog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Read-only: this job only verifies the generated catalog is in sync. It never
+# commits — a drift should be fixed by the contributor and reviewed, not
+# auto-applied.
+permissions:
+  contents: read
+
+jobs:
+  catalog-sync:
+    runs-on: ubuntu-latest
+    steps:
+      # Submodules are NOT needed: gen_catalog.py only reads replications.toml
+      # and the generated markdown, none of which live in submodules.
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12" # tomllib requires 3.11+
+
+      - name: Check replication catalog is in sync with replications.toml
+        run: |
+          set -euo pipefail
+          if ! python3 tools/gen_catalog.py --check; then
+            echo "::error::Replication catalog is out of date. Run 'python3 tools/gen_catalog.py' and commit the regenerated README.md/README.ja.md and docs/replications.{md,ja.md}."
+            exit 1
+          fi
