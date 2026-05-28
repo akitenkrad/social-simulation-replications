@@ -2,7 +2,7 @@
 
 # 再現実装カタログ
 
-社会シミュレーション系論文の再現実装 全 16 件を，モデリングパラダイムごとに分類しています：古典的エージェントベースモデル 4 件，LLM ベースの社会シミュレーション 11 件，ゲーム AI・その他 1 件．
+社会シミュレーション系論文の再現実装 全 17 件を，モデリングパラダイムごとに分類しています：古典的エージェントベースモデル 5 件，LLM ベースの社会シミュレーション 11 件，ゲーム AI・その他 1 件．
 
 ## 古典的エージェントベースモデル
 
@@ -11,7 +11,8 @@
 | 1971 | Schelling, "Dynamic Models of Segregation" | 住み分け（分居） | [schelling1971](https://github.com/akitenkrad/schelling1971) |
 | 1973 | Granovetter, "The Strength of Weak Ties" | 弱い紐帯・ネットワーク | [granovetter1973](https://github.com/akitenkrad/granovetter1973) |
 | 1997 | Axelrod, "The Dissemination of Culture" | 文化の伝播 | [axelrod1997](https://github.com/akitenkrad/axelrod1997) |
-| 2005 | Hegselmann & Krause, "Opinion Dynamics Driven by Various Ways of Averaging" | 意見ダイナミクス | [hegselmann2005](https://github.com/akitenkrad/hegselmann2005) |
+| 2002 | Hegselmann & Krause, "Opinion Dynamics and Bounded Confidence: Models, Analysis and Simulation" | 限定信頼モデル | [hegselmann2002](https://github.com/akitenkrad/hegselmann2002) |
+| 2005 | Hegselmann & Krause, "Opinion Dynamics Driven by Various Ways of Averaging" | 意見ダイナミクス (平均演算子) | [hegselmann2005](https://github.com/akitenkrad/hegselmann2005) |
 
 ## LLM ベースの社会シミュレーション
 

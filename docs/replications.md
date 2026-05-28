@@ -2,7 +2,7 @@
 
 # Replication catalog
 
-16 replication implementations of social-simulation papers, grouped by modeling paradigm: 4 Classic agent-based models; 11 LLM-based social simulation; 1 Game AI / other.
+17 replication implementations of social-simulation papers, grouped by modeling paradigm: 5 Classic agent-based models; 11 LLM-based social simulation; 1 Game AI / other.
 
 ## Classic agent-based models
 
@@ -11,7 +11,8 @@
 | 1971 | Schelling, "Dynamic Models of Segregation" | Residential segregation | [schelling1971](https://github.com/akitenkrad/schelling1971) |
 | 1973 | Granovetter, "The Strength of Weak Ties" | Weak ties / networks | [granovetter1973](https://github.com/akitenkrad/granovetter1973) |
 | 1997 | Axelrod, "The Dissemination of Culture" | Cultural dissemination | [axelrod1997](https://github.com/akitenkrad/axelrod1997) |
-| 2005 | Hegselmann & Krause, "Opinion Dynamics Driven by Various Ways of Averaging" | Opinion dynamics | [hegselmann2005](https://github.com/akitenkrad/hegselmann2005) |
+| 2002 | Hegselmann & Krause, "Opinion Dynamics and Bounded Confidence: Models, Analysis and Simulation" | Bounded confidence (HK) | [hegselmann2002](https://github.com/akitenkrad/hegselmann2002) |
+| 2005 | Hegselmann & Krause, "Opinion Dynamics Driven by Various Ways of Averaging" | Opinion dynamics (averaging operators) | [hegselmann2005](https://github.com/akitenkrad/hegselmann2005) |
 
 ## LLM-based social simulation
 

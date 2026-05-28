@@ -52,3 +52,6 @@
 [submodule "replications/ji2024"]
 	path = replications/ji2024
 	url = git@github.com:akitenkrad/ji2024.git
+[submodule "replications/hegselmann2002"]
+	path = replications/hegselmann2002
+	url = git@github.com:akitenkrad/hegselmann2002.git

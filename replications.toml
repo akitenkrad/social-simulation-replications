@@ -53,6 +53,17 @@ theme_en = "Cultural dissemination"
 theme_ja = "文化の伝播"
 
 [[replication]]
+key = "hegselmann2002"
+repo = "hegselmann2002"
+author = "Hegselmann & Krause"
+year = 2002
+title = "Opinion Dynamics and Bounded Confidence: Models, Analysis and Simulation"
+paradigm = "classic-abm"
+domain = ""
+theme_en = "Bounded confidence (HK)"
+theme_ja = "限定信頼モデル"
+
+[[replication]]
 key = "hegselmann2005"
 repo = "hegselmann2005"
 author = "Hegselmann & Krause"
@@ -60,8 +71,8 @@ year = 2005
 title = "Opinion Dynamics Driven by Various Ways of Averaging"
 paradigm = "classic-abm"
 domain = ""
-theme_en = "Opinion dynamics"
-theme_ja = "意見ダイナミクス"
+theme_en = "Opinion dynamics (averaging operators)"
+theme_ja = "意見ダイナミクス (平均演算子)"
 
 # --- LLM-based social simulation ------------------------------------------------
 
