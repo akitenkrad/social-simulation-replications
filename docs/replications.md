@@ -2,7 +2,7 @@
 
 # Replication catalog
 
-17 replication implementations of social-simulation papers, grouped by modeling paradigm: 5 Classic agent-based models; 11 LLM-based social simulation; 1 Game AI / other.
+18 replication implementations of social-simulation papers, grouped by modeling paradigm: 5 Classic agent-based models; 12 LLM-based social simulation; 1 Game AI / other.
 
 ## Classic agent-based models
 
@@ -20,6 +20,7 @@
 
 | Year | Paper | Theme | Repo |
 |------|-------|-------|------|
+| 2013 | Knoll & van Dick, "Do I Hear the Whistle…? A First Attempt to Measure Four Forms of Employee Silence and Their Correlates" | Employee silence (4 forms) | [knoll2013](https://github.com/akitenkrad/knoll2013) |
 | 2024 | Chuang et al., "Simulating Opinion Dynamics with Networks of LLM-based Agents" | Opinion dynamics | [chuang2024](https://github.com/akitenkrad/chuang2024) |
 | 2024 | Ren et al., "Emergence of Social Norms in Generative Agent Societies (CRSEC)" | Social norms | [ren2024](https://github.com/akitenkrad/ren2024) |
 | 2024 | Mou et al., "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)" | Social movements | [mou2024](https://github.com/akitenkrad/mou2024) |

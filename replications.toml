@@ -110,6 +110,17 @@ domain = "opinion-norms"
 theme_en = "Social movements"
 theme_ja = "社会運動"
 
+[[replication]]
+key = "knoll2013"
+repo = "knoll2013"
+author = "Knoll & van Dick"
+year = 2013
+title = "Do I Hear the Whistle…? A First Attempt to Measure Four Forms of Employee Silence and Their Correlates"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Employee silence (4 forms)"
+theme_ja = "従業員サイレンス (4 動機形態)"
+
 # domain: economy
 [[replication]]
 key = "li2024"
