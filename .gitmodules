@@ -64,3 +64,6 @@
 [submodule "replications/detert2011"]
 	path = replications/detert2011
 	url = git@github.com:akitenkrad/detert2011.git
+[submodule "replications/edmondson1999"]
+	path = replications/edmondson1999
+	url = git@github.com:akitenkrad/edmondson1999.git

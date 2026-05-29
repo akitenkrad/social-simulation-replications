@@ -143,6 +143,17 @@ domain = "opinion-norms"
 theme_en = "Implicit voice theories (self-censorship)"
 theme_ja = "暗黙の発言理論 (自己検閲)"
 
+[[replication]]
+key = "edmondson1999"
+repo = "edmondson1999"
+author = "Edmondson"
+year = 1999
+title = "Psychological Safety and Learning Behavior in Work Teams"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Psychological safety & team learning"
+theme_ja = "心理的安全性とチーム学習"
+
 # domain: economy
 [[replication]]
 key = "li2024"
