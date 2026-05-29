@@ -132,6 +132,17 @@ domain = "opinion-norms"
 theme_en = "Employee silence (6 motives)"
 theme_ja = "従業員サイレンス (6 動機次元)"
 
+[[replication]]
+key = "detert2011"
+repo = "detert2011"
+author = "Detert & Edmondson"
+year = 2011
+title = "Implicit Voice Theories: Taken-for-Granted Rules of Self-Censorship at Work"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Implicit voice theories (self-censorship)"
+theme_ja = "暗黙の発言理論 (自己検閲)"
+
 # domain: economy
 [[replication]]
 key = "li2024"
