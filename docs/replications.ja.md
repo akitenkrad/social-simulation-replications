@@ -2,7 +2,7 @@
 
 # 再現実装カタログ
 
-社会シミュレーション系論文の再現実装 全 18 件を，モデリングパラダイムごとに分類しています：古典的エージェントベースモデル 5 件，LLM ベースの社会シミュレーション 12 件，ゲーム AI・その他 1 件．
+社会シミュレーション系論文の再現実装 全 19 件を，モデリングパラダイムごとに分類しています：古典的エージェントベースモデル 5 件，LLM ベースの社会シミュレーション 13 件，ゲーム AI・その他 1 件．
 
 ## 古典的エージェントベースモデル
 
@@ -21,6 +21,7 @@
 | 年 | 論文 | テーマ | リポジトリ |
 |----|------|--------|------------|
 | 2013 | Knoll & van Dick, "Do I Hear the Whistle…? A First Attempt to Measure Four Forms of Employee Silence and Their Correlates" | 従業員サイレンス (4 動機形態) | [knoll2013](https://github.com/akitenkrad/knoll2013) |
+| 2013 | Brinsfield, "Employee Silence Motives: Investigation of Dimensionality and Development of Measures" | 従業員サイレンス (6 動機次元) | [brinsfield2013](https://github.com/akitenkrad/brinsfield2013) |
 | 2024 | Chuang et al., "Simulating Opinion Dynamics with Networks of LLM-based Agents" | 意見ダイナミクス | [chuang2024](https://github.com/akitenkrad/chuang2024) |
 | 2024 | Ren et al., "Emergence of Social Norms in Generative Agent Societies (CRSEC)" | 社会規範 | [ren2024](https://github.com/akitenkrad/ren2024) |
 | 2024 | Mou et al., "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)" | 社会運動 | [mou2024](https://github.com/akitenkrad/mou2024) |

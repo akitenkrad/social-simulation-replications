@@ -121,6 +121,17 @@ domain = "opinion-norms"
 theme_en = "Employee silence (4 forms)"
 theme_ja = "従業員サイレンス (4 動機形態)"
 
+[[replication]]
+key = "brinsfield2013"
+repo = "brinsfield2013"
+author = "Brinsfield"
+year = 2013
+title = "Employee Silence Motives: Investigation of Dimensionality and Development of Measures"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Employee silence (6 motives)"
+theme_ja = "従業員サイレンス (6 動機次元)"
+
 # domain: economy
 [[replication]]
 key = "li2024"

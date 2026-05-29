@@ -58,3 +58,6 @@
 [submodule "replications/knoll2013"]
 	path = replications/knoll2013
 	url = git@github.com:akitenkrad/knoll2013.git
+[submodule "replications/brinsfield2013"]
+	path = replications/brinsfield2013
+	url = git@github.com:akitenkrad/brinsfield2013.git
