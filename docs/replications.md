@@ -2,7 +2,7 @@
 
 # Replication catalog
 
-22 replication implementations of social-simulation papers, grouped by modeling paradigm: 6 Classic agent-based models; 15 LLM-based social simulation; 1 Game AI / other.
+23 replication implementations of social-simulation papers, grouped by modeling paradigm: 6 Classic agent-based models; 16 LLM-based social simulation; 1 Game AI / other.
 
 ## Classic agent-based models
 
@@ -25,6 +25,7 @@
 | 2011 | Detert & Edmondson, "Implicit Voice Theories: Taken-for-Granted Rules of Self-Censorship at Work" | Implicit voice theories (self-censorship) | [detert2011](https://github.com/akitenkrad/detert2011) |
 | 2013 | Knoll & van Dick, "Do I Hear the Whistle…? A First Attempt to Measure Four Forms of Employee Silence and Their Correlates" | Employee silence (4 forms) | [knoll2013](https://github.com/akitenkrad/knoll2013) |
 | 2013 | Brinsfield, "Employee Silence Motives: Investigation of Dimensionality and Development of Measures" | Employee silence (6 motives) | [brinsfield2013](https://github.com/akitenkrad/brinsfield2013) |
+| 2019 | Fujimura & Hino, "Silence and Voice in the Organization: The Influences of Silence Motives and Psychological Safety" | Silence/voice SEM (Japan) | [fujimura2019](https://github.com/akitenkrad/fujimura2019) |
 | 2024 | Chuang et al., "Simulating Opinion Dynamics with Networks of LLM-based Agents" | Opinion dynamics | [chuang2024](https://github.com/akitenkrad/chuang2024) |
 | 2024 | Ren et al., "Emergence of Social Norms in Generative Agent Societies (CRSEC)" | Social norms | [ren2024](https://github.com/akitenkrad/ren2024) |
 | 2024 | Mou et al., "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)" | Social movements | [mou2024](https://github.com/akitenkrad/mou2024) |

@@ -165,6 +165,17 @@ domain = "opinion-norms"
 theme_en = "Psychological safety & team learning"
 theme_ja = "心理的安全性とチーム学習"
 
+[[replication]]
+key = "fujimura2019"
+repo = "fujimura2019"
+author = "Fujimura & Hino"
+year = 2019
+title = "Silence and Voice in the Organization: The Influences of Silence Motives and Psychological Safety"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Silence/voice SEM (Japan)"
+theme_ja = "沈黙・発言の規定要因 SEM (日本)"
+
 # domain: economy
 [[replication]]
 key = "li2024"
