@@ -67,3 +67,6 @@
 [submodule "replications/edmondson1999"]
 	path = replications/edmondson1999
 	url = git@github.com:akitenkrad/edmondson1999.git
+[submodule "replications/noelleneumann1974"]
+	path = replications/noelleneumann1974
+	url = git@github.com:akitenkrad/noelleneumann1974.git

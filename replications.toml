@@ -74,6 +74,17 @@ domain = ""
 theme_en = "Opinion dynamics (averaging operators)"
 theme_ja = "意見ダイナミクス (平均演算子)"
 
+[[replication]]
+key = "noelleneumann1974"
+repo = "noelleneumann1974"
+author = "Noelle-Neumann"
+year = 1974
+title = "The Spiral of Silence: A Theory of Public Opinion"
+paradigm = "classic-abm"
+domain = ""
+theme_en = "Spiral of silence (public opinion)"
+theme_ja = "沈黙の螺旋 (世論形成)"
+
 # --- LLM-based social simulation ------------------------------------------------
 
 # domain: opinion-norms
