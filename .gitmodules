@@ -73,3 +73,6 @@
 [submodule "replications/fujimura2019"]
 	path = replications/fujimura2019
 	url = git@github.com:akitenkrad/fujimura2019.git
+[submodule "replications/argyle2023"]
+	path = replications/argyle2023
+	url = git@github.com:akitenkrad/argyle2023.git

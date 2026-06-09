@@ -176,6 +176,17 @@ domain = "opinion-norms"
 theme_en = "Silence/voice SEM (Japan)"
 theme_ja = "沈黙・発言の規定要因 SEM (日本)"
 
+[[replication]]
+key = "argyle2023"
+repo = "argyle2023"
+author = "Argyle et al."
+year = 2023
+title = "Out of One, Many: Using Language Models to Simulate Human Samples"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Silicon samples (survey/opinion)"
+theme_ja = "シリコンサンプル (世論・調査)"
+
 # domain: economy
 [[replication]]
 key = "li2024"
