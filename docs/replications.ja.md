@@ -2,7 +2,7 @@
 
 # 再現実装カタログ
 
-社会シミュレーション系論文の再現実装 全 24 件を，モデリングパラダイムごとに分類しています：古典的エージェントベースモデル 6 件，LLM ベースの社会シミュレーション 17 件，ゲーム AI・その他 1 件．
+社会シミュレーション系論文の再現実装 全 25 件を，モデリングパラダイムごとに分類しています：古典的エージェントベースモデル 6 件，LLM ベースの社会シミュレーション 18 件，ゲーム AI・その他 1 件．
 
 ## 古典的エージェントベースモデル
 
@@ -30,6 +30,7 @@
 | 2024 | Chuang et al., "Simulating Opinion Dynamics with Networks of LLM-based Agents" | 意見ダイナミクス | [chuang2024](https://github.com/akitenkrad/chuang2024) |
 | 2024 | Ren et al., "Emergence of Social Norms in Generative Agent Societies (CRSEC)" | 社会規範 | [ren2024](https://github.com/akitenkrad/ren2024) |
 | 2024 | Mou et al., "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)" | 社会運動 | [mou2024](https://github.com/akitenkrad/mou2024) |
+| 2024 | Sun et al., "Random Silicon Sampling: Simulating Human Sub-Population Opinion Using a Large Language Model Based on Group-Level Demographic Information" | 集団レベルのシリコンサンプリング (logprob 非依存) | [sun2024](https://github.com/akitenkrad/sun2024) |
 
 ### 経済・市場・資源
 

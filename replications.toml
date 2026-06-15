@@ -187,6 +187,17 @@ domain = "opinion-norms"
 theme_en = "Silicon samples (survey/opinion)"
 theme_ja = "シリコンサンプル (世論・調査)"
 
+[[replication]]
+key = "sun2024"
+repo = "sun2024"
+author = "Sun et al."
+year = 2024
+title = "Random Silicon Sampling: Simulating Human Sub-Population Opinion Using a Large Language Model Based on Group-Level Demographic Information"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Group-level silicon sampling (logprob-free)"
+theme_ja = "集団レベルのシリコンサンプリング (logprob 非依存)"
+
 # domain: economy
 [[replication]]
 key = "li2024"

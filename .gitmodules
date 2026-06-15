@@ -76,3 +76,6 @@
 [submodule "replications/argyle2023"]
 	path = replications/argyle2023
 	url = git@github.com:akitenkrad/argyle2023.git
+[submodule "replications/sun2024"]
+	path = replications/sun2024
+	url = git@github.com:akitenkrad/sun2024.git
