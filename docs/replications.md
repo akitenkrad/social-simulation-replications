@@ -2,7 +2,7 @@
 
 # Replication catalog
 
-25 replication implementations of social-simulation papers, grouped by modeling paradigm: 6 Classic agent-based models; 18 LLM-based social simulation; 1 Game AI / other.
+26 replication implementations of social-simulation papers, grouped by modeling paradigm: 6 Classic agent-based models; 19 LLM-based social simulation; 1 Game AI / other.
 
 ## Classic agent-based models
 
@@ -31,6 +31,7 @@
 | 2024 | Ren et al., "Emergence of Social Norms in Generative Agent Societies (CRSEC)" | Social norms | [ren2024](https://github.com/akitenkrad/ren2024) |
 | 2024 | Mou et al., "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)" | Social movements | [mou2024](https://github.com/akitenkrad/mou2024) |
 | 2024 | Sun et al., "Random Silicon Sampling: Simulating Human Sub-Population Opinion Using a Large Language Model Based on Group-Level Demographic Information" | Group-level silicon sampling (logprob-free) | [sun2024](https://github.com/akitenkrad/sun2024) |
+| 2026 | Gong et al., "Characterizing the Ability of LLMs to Recapitulate Americans' Distributional Responses to Public Opinion Polling Questions Across Political Issues" | Direct Distribution vs Single Individual (logprob-free) | [gong2026](https://github.com/akitenkrad/gong2026) |
 
 ### Economy, markets & resources
 

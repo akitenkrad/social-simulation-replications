@@ -79,3 +79,6 @@
 [submodule "replications/sun2024"]
 	path = replications/sun2024
 	url = git@github.com:akitenkrad/sun2024.git
+[submodule "replications/gong2026"]
+	path = replications/gong2026
+	url = git@github.com:akitenkrad/gong2026.git

@@ -198,6 +198,17 @@ domain = "opinion-norms"
 theme_en = "Group-level silicon sampling (logprob-free)"
 theme_ja = "集団レベルのシリコンサンプリング (logprob 非依存)"
 
+[[replication]]
+key = "gong2026"
+repo = "gong2026"
+author = "Gong et al."
+year = 2026
+title = "Characterizing the Ability of LLMs to Recapitulate Americans' Distributional Responses to Public Opinion Polling Questions Across Political Issues"
+paradigm = "llm-social"
+domain = "opinion-norms"
+theme_en = "Direct Distribution vs Single Individual (logprob-free)"
+theme_ja = "分布直接予測 (DD) と個人反復 (SI) の比較 (logprob 非依存)"
+
 # domain: economy
 [[replication]]
 key = "li2024"
