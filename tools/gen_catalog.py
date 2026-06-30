@@ -88,6 +88,50 @@ def load_replications() -> list[dict]:
     return data.get("replication", [])
 
 
+# Keys every [[replication]] entry must define for the catalog to render.
+REQUIRED_KEYS = ("key", "repo", "author", "year", "title", "paradigm", "theme_en", "theme_ja")
+
+
+def validate_replications(reps: list[dict]) -> None:
+    """Fail fast with an actionable message if replications.toml uses an
+    unknown paradigm/domain or omits a required field.
+
+    The renderers index closed dicts keyed by `paradigm` (GROUP_ORDER) and,
+    for llm-social, by `domain` (DOMAIN_ORDER). Without this check a typo or a
+    new category surfaces only as a bare ``KeyError`` stack trace deep in
+    rendering. Here we collect every problem and explain how to fix it.
+    """
+    errors: list[str] = []
+    for i, rep in enumerate(reps):
+        ident = rep.get("key") or rep.get("repo") or f"entry #{i + 1}"
+        for k in REQUIRED_KEYS:
+            if k not in rep:
+                errors.append(f"[{ident}] missing required field '{k}'")
+        paradigm = rep.get("paradigm")
+        if paradigm is not None and paradigm not in GROUP_ORDER:
+            errors.append(
+                f"[{ident}] unknown paradigm '{paradigm}'. "
+                f"Allowed: {', '.join(GROUP_ORDER)}. "
+                f"Add a new paradigm to GROUP_ORDER/GROUP_LABELS in tools/gen_catalog.py, "
+                f"or use an existing one."
+            )
+        # domain only drives sub-grouping for llm-social; ignored elsewhere.
+        if paradigm == "llm-social":
+            domain = rep.get("domain")
+            if domain not in DOMAIN_ORDER:
+                errors.append(
+                    f"[{ident}] unknown domain '{domain}' for paradigm 'llm-social'. "
+                    f"Allowed: {', '.join(DOMAIN_ORDER)}. "
+                    f"Add a new domain to DOMAIN_ORDER/DOMAIN_LABELS in tools/gen_catalog.py, "
+                    f"or use an existing one."
+                )
+    if errors:
+        print("replications.toml validation failed:", file=sys.stderr)
+        for e in errors:
+            print(f"  - {e}", file=sys.stderr)
+        raise SystemExit(2)
+
+
 def year_cell(rep: dict) -> str:
     return rep.get("year_display") or str(rep["year"])
 
@@ -264,6 +308,7 @@ def main() -> int:
     args = parser.parse_args()
 
     reps = load_replications()
+    validate_replications(reps)
     targets = build_targets(reps)
 
     if args.check:
