@@ -2,7 +2,7 @@
 
 # 再現実装カタログ
 
-社会シミュレーション系論文の再現実装 全 26 件を，モデリングパラダイムごとに分類しています：古典的エージェントベースモデル 6 件，LLM ベースの社会シミュレーション 19 件，ゲーム AI・その他 1 件．
+社会シミュレーション系論文の再現実装 全 27 件を，モデリングパラダイムごとに分類しています：古典的エージェントベースモデル 6 件，LLM ベースの社会シミュレーション 20 件，ゲーム AI・その他 1 件．
 
 ## 古典的エージェントベースモデル
 
@@ -55,6 +55,12 @@
 | 2023 | Gao et al., "S3: Social-network Simulation System with LLM-Empowered Agents" | ソーシャルネットワーク基盤 | [gao2023](https://github.com/akitenkrad/gao2023) |
 | 2024 | Yang et al., "OASIS: Open Agent Social Interaction Simulations with One Million Agents" | 大規模シミュレーション基盤 | [yang2024](https://github.com/akitenkrad/yang2024) |
 | 2025 | Wang et al., "YuLan-OneSim: Towards the Next Generation of Social Simulator with Large Language Models" | シミュレータ基盤 | [wang2025](https://github.com/akitenkrad/wang2025) |
+
+### 認知バイアス・行動評価
+
+| 年 | 論文 | テーマ | リポジトリ |
+|----|------|--------|------------|
+| 2022 | Jones & Steinhardt, "Capturing Failures of Large Language Models via Human Cognitive Biases" | 人間の認知バイアスを介した LLM の質的失敗の誘発 | [jones2022](https://github.com/akitenkrad/jones2022) |
 
 ## ゲーム AI・その他
 

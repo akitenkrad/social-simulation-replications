@@ -52,7 +52,7 @@ GROUP_LABELS = {
 }
 
 # LLM domain subsection ordering and labels.
-DOMAIN_ORDER = ["opinion-norms", "economy", "competition-conflict", "platform-scale"]
+DOMAIN_ORDER = ["opinion-norms", "economy", "competition-conflict", "platform-scale", "cognitive-bias-probe"]
 DOMAIN_LABELS = {
     "opinion-norms": {
         "en": "Opinion, norms & collective behavior",
@@ -69,6 +69,10 @@ DOMAIN_LABELS = {
     "platform-scale": {
         "en": "Platforms & large-scale simulators",
         "ja": "基盤・大規模シミュレータ",
+    },
+    "cognitive-bias-probe": {
+        "en": "Cognitive biases & behavioral evaluation",
+        "ja": "認知バイアス・行動評価",
     },
 }
 

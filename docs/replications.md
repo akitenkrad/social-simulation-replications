@@ -2,7 +2,7 @@
 
 # Replication catalog
 
-26 replication implementations of social-simulation papers, grouped by modeling paradigm: 6 Classic agent-based models; 19 LLM-based social simulation; 1 Game AI / other.
+27 replication implementations of social-simulation papers, grouped by modeling paradigm: 6 Classic agent-based models; 20 LLM-based social simulation; 1 Game AI / other.
 
 ## Classic agent-based models
 
@@ -55,6 +55,12 @@
 | 2023 | Gao et al., "S3: Social-network Simulation System with LLM-Empowered Agents" | Social-network platform | [gao2023](https://github.com/akitenkrad/gao2023) |
 | 2024 | Yang et al., "OASIS: Open Agent Social Interaction Simulations with One Million Agents" | Large-scale platform | [yang2024](https://github.com/akitenkrad/yang2024) |
 | 2025 | Wang et al., "YuLan-OneSim: Towards the Next Generation of Social Simulator with Large Language Models" | Simulator platform | [wang2025](https://github.com/akitenkrad/wang2025) |
+
+### Cognitive biases & behavioral evaluation
+
+| Year | Paper | Theme | Repo |
+|------|-------|-------|------|
+| 2022 | Jones & Steinhardt, "Capturing Failures of Large Language Models via Human Cognitive Biases" | Eliciting qualitative LLM failures via human cognitive biases | [jones2022](https://github.com/akitenkrad/jones2022) |
 
 ## Game AI / other
 
