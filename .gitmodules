@@ -82,3 +82,6 @@
 [submodule "replications/gong2026"]
 	path = replications/gong2026
 	url = git@github.com:akitenkrad/gong2026.git
+[submodule "replications/jones2022"]
+	path = replications/jones2022
+	url = git@github.com:akitenkrad/jones2022.git

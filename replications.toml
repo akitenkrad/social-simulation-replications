@@ -300,6 +300,17 @@ domain = "platform-scale"
 theme_en = "Simulator platform"
 theme_ja = "シミュレータ基盤"
 
+[[replication]]
+key = "jones2022"
+repo = "jones2022"
+author = "Jones & Steinhardt"
+year = 2022
+title = "Capturing Failures of Large Language Models via Human Cognitive Biases"
+paradigm = "llm-eval"
+domain = "cognitive-bias-probe"
+theme_en = "Eliciting qualitative LLM failures via human cognitive biases"
+theme_ja = "人間の認知バイアスを介した LLM の質的失敗の誘発"
+
 # --- Game AI / other ------------------------------------------------------------
 
 [[replication]]
