@@ -1,0 +1,134 @@
+{
+  "id": "replication-sim",
+  "description": "シミュレーション論文の再現実装 (simulation/ Rust + tools/ Python の Cargo workspace + uv workspace モノレポ). replication-design-for-simulation-study スキルが規定する構成.",
+  "source": "my-skills/skills/socsim-replication-design/SKILL.md",
+  "detect": {
+    "all": [
+      "simulation/Cargo.toml",
+      "tools/pyproject.toml"
+    ]
+  },
+  "rules": [
+    {
+      "id": "require-core-files",
+      "kind": "require_path",
+      "tag": "missing",
+      "severity": "medium",
+      "paths": [
+        "README.md",
+        ".gitignore",
+        ".claude/CLAUDE.md",
+        "Cargo.toml",
+        "pyproject.toml",
+        "simulation/src",
+        "tools/src"
+      ],
+      "hint": "テンプレート (social-simulation-replications/template/files/) から補う",
+      "rationale": "モノレポの必須構成要素"
+    },
+    {
+      "id": "gitignore-required-entries",
+      "kind": "gitignore_contains",
+      "tag": "missing",
+      "severity": "high",
+      "entries": [
+        ".claude/",
+        "results/",
+        "/target/"
+      ],
+      "rationale": ".claude/ はローカル専用, results/ は全件除外と規定されている",
+      "watch": [
+        ".gitignore",
+        "*"
+      ]
+    },
+    {
+      "id": "local-only-not-tracked",
+      "kind": "forbid_tracked",
+      "tag": "misplaced",
+      "severity": "high",
+      "paths": [
+        ".claude",
+        "results"
+      ],
+      "rationale": "ローカル専用設定と実験結果は公開リポジトリに含めない",
+      "watch": [
+        ".claude/*",
+        ".claude/**",
+        "results/*",
+        "results/**",
+        ".gitignore"
+      ]
+    },
+    {
+      "id": "results-dir-naming",
+      "kind": "child_name_pattern",
+      "tag": "misnamed",
+      "severity": "medium",
+      "parent": "results",
+      "pattern": "^([A-Za-z0-9_-]+_)?[0-9]{8}_[0-9]{6}(_[A-Za-z0-9_-]+)?$",
+      "hint": "ディレクトリ名にタイムスタンプ (YYYYMMDD_HHMMSS) を必ず含める. 含まないと再実行で上書きされる",
+      "rationale": "接頭・接尾のどちらでもよいが, タイムスタンプの無いディレクトリは再実行で失われる",
+      "watch": [
+        "results/*",
+        "results/**"
+      ],
+      "exclude": [
+        "latest"
+      ],
+      "grouping_dirs": true
+    },
+    {
+      "id": "results-has-record",
+      "kind": "records_run_config",
+      "tag": "unrecorded",
+      "severity": "medium",
+      "parent": "results",
+      "rationale": "実行結果に機械可読な記録が何も残っていないことだけを検査する. 記録の十分性 (条件が復元できるか) は形が repo ごとに違い意味の判断になるため, repro 軸のスキルに委ねる",
+      "watch": [
+        "results/*",
+        "results/**"
+      ],
+      "exclude": [
+        "latest"
+      ],
+      "require": "any_json",
+      "grouping_dirs": true
+    },
+    {
+      "id": "paper-key-consistency",
+      "kind": "name_consistency",
+      "tag": "inconsistent",
+      "severity": "medium",
+      "key": {
+        "path": "simulation/Cargo.toml",
+        "from": "toml_package_name",
+        "strip_suffix": "-simulation"
+      },
+      "expect": [
+        {
+          "path": "simulation/Cargo.toml",
+          "from": "toml_bin_name",
+          "template": "{key}"
+        },
+        {
+          "path": "tools/pyproject.toml",
+          "from": "toml_package_name",
+          "template": "{key}-tools"
+        },
+        {
+          "path": "tools/src",
+          "from": "single_child_dir",
+          "template": "{key_snake}_tools"
+        }
+      ],
+      "rationale": "crate 名・パッケージ名・モジュール名が同一の識別子から派生していること (識別子の形式そのものは問わない)",
+      "watch": [
+        "simulation/Cargo.toml",
+        "tools/pyproject.toml",
+        "tools/src/*",
+        "tools/src/**"
+      ]
+    }
+  ]
+}

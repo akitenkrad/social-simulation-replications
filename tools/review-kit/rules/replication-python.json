@@ -1,0 +1,150 @@
+{
+  "id": "replication-python",
+  "description": "構成B: Python 中心 (NLP/LLM・CV・ML 系論文向け) の単体リポジトリ. replication-design スキルが規定する構成.",
+  "source": "my-skills/skills/replication-design/SKILL.md",
+  "detect": {
+    "all": [
+      "pyproject.toml",
+      "scripts/run.py"
+    ],
+    "none": [
+      "simulation/Cargo.toml",
+      "Cargo.toml"
+    ]
+  },
+  "rules": [
+    {
+      "id": "repo-directory-name",
+      "kind": "repo_name",
+      "tag": "misnamed",
+      "severity": "medium",
+      "pattern": "^replication-[a-z0-9]+(-[a-z0-9]+)*$",
+      "max_length": 60,
+      "rationale": "リポジトリ名は replication-{論文タイトルのケバブケース} と規定されている"
+    },
+    {
+      "id": "require-core-files",
+      "kind": "require_path",
+      "tag": "missing",
+      "severity": "medium",
+      "paths": [
+        "README.md",
+        ".gitignore",
+        ".claude/CLAUDE.md",
+        "pyproject.toml",
+        "scripts/run.py",
+        "scripts/sweep.py",
+        "scripts/visualize.py",
+        "configs/default.yaml",
+        "tests"
+      ],
+      "hint": "構成B のディレクトリツリーに合わせる",
+      "rationale": "run / sweep / visualize の 3 スクリプトと設定・テストが標準構成"
+    },
+    {
+      "id": "require-package-entrypoints",
+      "kind": "require_glob",
+      "tag": "missing",
+      "severity": "medium",
+      "globs": [
+        "src/*/cli.py",
+        "src/*/metrics.py",
+        "src/*/__init__.py"
+      ],
+      "hint": "src/{project_name}/ 配下に CLI エントリポイントと評価指標を置く",
+      "rationale": "src レイアウトのパッケージ構成"
+    },
+    {
+      "id": "gitignore-required-entries",
+      "kind": "gitignore_contains",
+      "tag": "missing",
+      "severity": "high",
+      "entries": [
+        ".claude/",
+        "results/",
+        "__pycache__/"
+      ],
+      "rationale": ".claude/ はローカル専用, results/ は全件除外と規定されている",
+      "watch": [
+        ".gitignore",
+        "*"
+      ]
+    },
+    {
+      "id": "local-only-not-tracked",
+      "kind": "forbid_tracked",
+      "tag": "misplaced",
+      "severity": "high",
+      "paths": [
+        ".claude",
+        "results"
+      ],
+      "rationale": "ローカル専用設定と実験結果は公開リポジトリに含めない",
+      "watch": [
+        ".claude/*",
+        ".claude/**",
+        "results/*",
+        "results/**",
+        ".gitignore"
+      ]
+    },
+    {
+      "id": "results-dir-naming",
+      "kind": "child_name_pattern",
+      "tag": "misnamed",
+      "severity": "medium",
+      "parent": "results",
+      "pattern": "^([A-Za-z0-9_-]+_)?[0-9]{8}_[0-9]{6}(_[A-Za-z0-9_-]+)?$",
+      "hint": "ディレクトリ名にタイムスタンプ (YYYYMMDD_HHMMSS) を必ず含める. 含まないと再実行で上書きされる",
+      "rationale": "接頭・接尾のどちらでもよいが, タイムスタンプの無いディレクトリは再実行で失われる",
+      "watch": [
+        "results/*",
+        "results/**"
+      ],
+      "exclude": [
+        "latest"
+      ],
+      "grouping_dirs": true
+    },
+    {
+      "id": "results-has-record",
+      "kind": "records_run_config",
+      "tag": "unrecorded",
+      "severity": "medium",
+      "parent": "results",
+      "rationale": "実行結果に機械可読な記録が何も残っていないことだけを検査する. 記録の十分性 (条件が復元できるか) は形が repo ごとに違い意味の判断になるため, repro 軸のスキルに委ねる",
+      "watch": [
+        "results/*",
+        "results/**"
+      ],
+      "exclude": [
+        "latest"
+      ],
+      "require": "any_json",
+      "grouping_dirs": true
+    },
+    {
+      "id": "package-name-consistency",
+      "kind": "name_consistency",
+      "tag": "inconsistent",
+      "severity": "medium",
+      "key": {
+        "path": "pyproject.toml",
+        "from": "toml_package_name"
+      },
+      "expect": [
+        {
+          "path": "src",
+          "from": "single_child_dir",
+          "template": "{key_snake}"
+        }
+      ],
+      "rationale": "pyproject の project.name と src 配下のモジュール名を一致させる (ハイフンはアンダースコアに置換)",
+      "watch": [
+        "pyproject.toml",
+        "src/*",
+        "src/**"
+      ]
+    }
+  ]
+}
