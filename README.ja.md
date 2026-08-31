@@ -86,6 +86,7 @@
 |------|-------------|
 | rs-social-simulation-tools | [simulators/rs-social-simulation-tools](https://github.com/akitenkrad/rs-social-simulation-tools) |
 | rs-othello-sim | [simulators/rs-othello-sim](https://github.com/akitenkrad/rs-othello-sim) |
+| rs-runvault-socsim | [simulators/rs-runvault-socsim](https://github.com/akitenkrad/rs-runvault-socsim) |
 
 ## Getting Started
 
