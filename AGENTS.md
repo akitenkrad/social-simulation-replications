@@ -12,6 +12,9 @@ built on the shared **socsim** platform in `simulators/rs-social-simulation-tool
   first — it links the agent-oriented capability map and recipes for the library.
 - **Working inside one replication?** Read that replication's own `README.md` and
   `.claude/CLAUDE.md` for its build/run/test commands and conventions.
+- **Creating a run for development, debugging, or smoke testing?** Always pass
+  `--scratch`; the run goes under `results/_scratch/` and is never synced. Clean
+  up an accidental failed production run with `runvault delete`.
 - `paper_key = {first-author surname}{year}` (lowercase ASCII) — the directory,
   submodule path, and workspace name all use it.
 
