@@ -88,3 +88,6 @@
 [submodule "simulators/rs-runvault-socsim"]
 	path = simulators/rs-runvault-socsim
 	url = git@github.com:akitenkrad/rs-runvault-socsim.git
+[submodule "experiments/dollar-auction-escalation"]
+	path = experiments/dollar-auction-escalation
+	url = git@github.com:akitenkrad/dollar-auction-escalation.git

@@ -335,3 +335,13 @@ paradigm = "game-ai"
 domain = ""
 theme_en = "Othello game AI"
 theme_ja = "オセロのゲーム AI"
+
+# --- Experiments (no source paper) ---------------------------------------------
+
+[[experiment]]
+key = "dollar-auction-escalation"
+repo = "dollar-auction-escalation"
+year = 2026
+title = "Escalation of LLM agents in the dollar auction"
+theme_en = "Dollar-auction escalation (theory vs. human vs. LLM)"
+theme_ja = "ドル・オークションのエスカレーション（理論・人間・LLM）"
