@@ -38,7 +38,7 @@ A single `{{NAME}}` derives the following identifiers:
 
 - Rust crate: `<NAME>-simulation`
 - Rust binary: `<NAME>`
-- Python package: `<NAME>_tools` (directory name / module name)
+- Python package: `<NAME_snake>_tools` (directory name / module name; hyphens in `<NAME>` become underscores)
 - Python CLI: `<NAME>-tools`
 
 ## Usage (manual setup)
@@ -53,11 +53,12 @@ cp -R template/files replications/<paper_key>
 
 # 2. Replace the {{NAME}} placeholder with <name> everywhere
 #    (macOS sed needs the -i '' form; on Linux -i alone is fine)
-find replications/<paper_key> -type f -exec sed -i '' 's/{{NAME}}/<name>/g' {} \;
+find replications/<paper_key> -type f -exec sed -i '' \
+  -e 's/{{NAME}}_tools/<name_snake>_tools/g' -e 's/{{NAME}}/<name>/g' {} \;
 
 # 3. Rename the Python package directory
 mv replications/<paper_key>/tools/src/_NAME_tools \
-   replications/<paper_key>/tools/src/<name>_tools
+   replications/<paper_key>/tools/src/<name_snake>_tools
 
 # 4. Rename _claude/ to .claude/ (the placeholder name dodges the parent repo's .gitignore)
 mv replications/<paper_key>/_claude replications/<paper_key>/.claude
@@ -69,7 +70,40 @@ uv sync
 uv run <name>-tools --help
 ```
 
-### 6. Register the replication in the catalog
+### 6. Initialize and commit the replication repository
+
+The scaffolded directory becomes the root of the new repository. Create its first commit before registering it as a submodule:
+
+```bash
+# Still inside replications/<paper_key>
+git init
+git add .
+git commit -m "Initial replication implementation"
+```
+
+### 7. Create and push the GitHub repository
+
+Create `akitenkrad/<repo>` with the appropriate visibility and push the first commit. Choose either `--public` or `--private` for the repository being created:
+
+```bash
+gh repo create akitenkrad/<repo> --public --source . --push
+# Or replace --public with --private.
+```
+
+You can instead create the repository separately, add it as `origin`, and push the current branch.
+
+### 8. Register the repository as a submodule
+
+Return to the parent monorepo and add the submodule at the scaffolded path:
+
+```bash
+cd ../..
+git submodule add git@github.com:akitenkrad/<repo>.git replications/<paper_key>
+```
+
+`git submodule add` accepts an existing Git repository at the destination path, so the directory created and committed in the preceding steps does not need to be removed or cloned again.
+
+### 9. Register the replication in the catalog
 
 The replication tables in `README.md`, `README.ja.md`, and `docs/replications*.md` are auto-generated from `replications.toml` at the repo root. Do **not** edit those tables by hand. Instead:
 
@@ -81,6 +115,16 @@ python3 tools/gen_catalog.py
 
 # Verify nothing is stale (useful in CI):
 python3 tools/gen_catalog.py --check
+```
+
+### 10. Commit the parent monorepo changes
+
+The parent commit records the submodule configuration and pointer together with the catalog source and generated files:
+
+```bash
+git add .gitmodules replications/<paper_key> replications.toml \
+  README.md README.ja.md docs/replications.md docs/replications.ja.md
+git commit -m "Add <paper_key> replication"
 ```
 
 ### Example: Axelrod (1997)

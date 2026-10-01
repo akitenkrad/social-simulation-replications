@@ -29,6 +29,6 @@ jobs:
         run: |
           set -euo pipefail
           if ! python3 tools/gen_catalog.py --check; then
-            echo "::error::Replication catalog is out of date. Run 'python3 tools/gen_catalog.py' and commit the regenerated README.md/README.ja.md and docs/replications.{md,ja.md}."
+            echo "::error::Catalog is out of date. Run 'python3 tools/gen_catalog.py' and commit the regenerated README.md/README.ja.md and catalog files under docs/."
             exit 1
           fi

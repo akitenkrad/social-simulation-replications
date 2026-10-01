@@ -4,7 +4,7 @@
     --results-dir <path>  既存実行の `config.json` (run) / `sweep_config.json` (sweep)
                           を読んで整形表示する．`results/latest` シンボリックリンクも解決．
 
-論文固有モード（必要に応じて追加）:
+Replication 専用モード（必要に応じて追加）:
     引数なし時に `paper_experiments()` 等の論文再現実験定義を一覧表示する．
     本テンプレートでは未実装．`reproduce_paper.py` を作成したら，
     そこから `Experiment` / `paper_experiments()` をインポートして拡張すること．

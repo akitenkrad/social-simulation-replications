@@ -1,6 +1,6 @@
-# Single source of truth for the replication catalog.
+# Single source of truth for the replication and experiment catalogs.
 #
-# Edit this file, then regenerate the README tables and docs/replications*.md with:
+# Edit this file, then regenerate the README tables and docs catalogs with:
 #
 #     python3 tools/gen_catalog.py
 #
@@ -13,7 +13,18 @@
 #   title        paper title, kept in English
 #   paradigm     one of: "classic-abm", "llm-social", "game-ai"
 #   domain       only for paradigm = "llm-social"; one of:
-#                "opinion-norms", "economy", "competition-conflict", "platform-scale"
+#                "opinion-norms", "economy", "competition-conflict", "platform-scale",
+#                "cognitive-bias-probe"
+#   theme_en     short theme label (English)
+#   theme_ja     short theme label (Japanese)
+#
+# Required fields per [[experiment]]:
+#   key          lowercase kebab-case theme name matching ^[a-z0-9]+(-[a-z0-9]+)*$
+#                (e.g. "dollar-auction-escalation");
+#                also the directory name, submodule path component, and table label
+#   repo         GitHub repo name under github.com/akitenkrad/<repo> (usually == key)
+#   year         integer year the experiment started (used for sorting)
+#   title        short descriptive English title of the experiment
 #   theme_en     short theme label (English)
 #   theme_ja     short theme label (Japanese)
 

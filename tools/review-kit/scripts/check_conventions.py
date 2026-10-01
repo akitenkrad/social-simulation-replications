@@ -750,11 +750,18 @@ def main(argv: list[str] | None = None) -> int:
 
     # --- 複数リポジトリの一括走査 -------------------------------------------
     if args.each:
+        if not base.exists():
+            print(f"review-kit: {base} はまだ存在しません (走査対象 0 件).")
+            return 0
         if not base.is_dir():
             print(f"review-kit: {base} はディレクトリではありません.", file=sys.stderr)
             return 3
+        children = sorted(p for p in base.iterdir() if p.is_dir() and not p.name.startswith("."))
+        if not children:
+            print(f"review-kit: {base} に走査対象のリポジトリはありません.")
+            return 0
         results: list[tuple[Path, dict | None, list[Finding]]] = []
-        for child in sorted(p for p in base.iterdir() if p.is_dir() and not p.name.startswith(".")):
+        for child in children:
             ruleset, findings, trace = scan_one(child, rulesets, args.changed)
             results.append((child, ruleset, findings))
             if args.format == "json":

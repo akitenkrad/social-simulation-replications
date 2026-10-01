@@ -38,7 +38,7 @@ template/
 
 - Rust crate: `<NAME>-simulation`
 - Rust binary: `<NAME>`
-- Python package: `<NAME>_tools` （ディレクトリ名・モジュール名）
+- Python package: `<NAME_snake>_tools` （ディレクトリ名・モジュール名．`<NAME>` のハイフンはアンダースコアに置き換える）
 - Python CLI: `<NAME>-tools`
 
 ## 使い方（手動セットアップ）
@@ -53,11 +53,12 @@ cp -R template/files replications/<paper_key>
 
 # 2. プレースホルダ {{NAME}} を <name> に一括置換
 #    (macOS の sed は -i '' 形式が必要．Linux は -i だけで可)
-find replications/<paper_key> -type f -exec sed -i '' 's/{{NAME}}/<name>/g' {} \;
+find replications/<paper_key> -type f -exec sed -i '' \
+  -e 's/{{NAME}}_tools/<name_snake>_tools/g' -e 's/{{NAME}}/<name>/g' {} \;
 
 # 3. Python パッケージディレクトリをリネーム
 mv replications/<paper_key>/tools/src/_NAME_tools \
-   replications/<paper_key>/tools/src/<name>_tools
+   replications/<paper_key>/tools/src/<name_snake>_tools
 
 # 4. _claude/ を .claude/ にリネーム（親リポジトリの .gitignore 回避用の仮名）
 mv replications/<paper_key>/_claude replications/<paper_key>/.claude
@@ -69,7 +70,40 @@ uv sync
 uv run <name>-tools --help
 ```
 
-### 6. カタログへ登録
+### 6. Replication リポジトリを初期化して最初のコミットを作成
+
+作成したディレクトリを新規リポジトリのルートとして初期化し，Submodule 登録前に最初のコミットを作成する：
+
+```bash
+# replications/<paper_key> 内で引き続き実行
+git init
+git add .
+git commit -m "Initial replication implementation"
+```
+
+### 7. GitHub リポジトリを作成して push
+
+用途に応じて `--public` または `--private` を選び，`akitenkrad/<repo>` を作成して最初のコミットを push する：
+
+```bash
+gh repo create akitenkrad/<repo> --public --source . --push
+# 非公開にする場合は --public を --private に置き換える．
+```
+
+GitHub 側で先にリポジトリを作成し，`origin` を追加して現在のブランチを push してもよい．
+
+### 8. 親リポジトリへ Submodule として登録
+
+親モノレポのルートへ戻り，作成済みのパスを Submodule として追加する：
+
+```bash
+cd ../..
+git submodule add git@github.com:akitenkrad/<repo>.git replications/<paper_key>
+```
+
+`git submodule add` は追加先に既存の Git リポジトリがあっても受け付けるため，直前の手順で作成したディレクトリを削除したり，再 clone したりする必要はない．
+
+### 9. カタログへ登録
 
 `README.md`，`README.ja.md`，`docs/replications*.md` の Replication 一覧は，リポジトリルートの `replications.toml` から自動生成される．これらの表を手で編集してはならない．代わりに次の手順を行う：
 
@@ -81,6 +115,16 @@ python3 tools/gen_catalog.py
 
 # 内容が古くなっていないか確認する（CI 向け）：
 python3 tools/gen_catalog.py --check
+```
+
+### 10. 親モノレポの変更をコミット
+
+親側では，Submodule の設定とポインタ，カタログの入力，生成ファイルを同じコミットに含める：
+
+```bash
+git add .gitmodules replications/<paper_key> replications.toml \
+  README.md README.ja.md docs/replications.md docs/replications.ja.md
+git commit -m "Add <paper_key> replication"
 ```
 
 ### 例: Axelrod (1997)

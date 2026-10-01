@@ -1,7 +1,7 @@
 {
   "id": "replication-sim",
-  "description": "シミュレーション論文の再現実装 (simulation/ Rust + tools/ Python の Cargo workspace + uv workspace モノレポ). replication-design-for-simulation-study スキルが規定する構成.",
-  "source": "my-skills/skills/socsim-replication-design/SKILL.md",
+  "description": "社会シミュレーションの論文再現または独自実験 (simulation/ Rust + tools/ Python の Cargo workspace + uv workspace モノレポ). 共通テンプレートが規定する構成.",
+  "source": "template/files/",
   "detect": {
     "all": [
       "simulation/Cargo.toml",

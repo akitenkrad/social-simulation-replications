@@ -1,8 +1,8 @@
-# Replication Project Template
+# Simulation Project Template
 
-> 親リポジトリ向けの解説は [docs/adding-a-replication.ja.md](../docs/adding-a-replication.ja.md) を参照．
+> 親リポジトリ向けの解説は [docs/adding-a-replication.ja.md](../docs/adding-a-replication.ja.md) と [docs/adding-an-experiment.ja.md](../docs/adding-an-experiment.ja.md) を参照．
 
-社会科学系の古典的論文の再現実装プロジェクト用テンプレート．Cargo workspace + uv workspace の 2 プロジェクト構成（Rust シミュレーション + Python ツール）の雛形を提供する．
+社会シミュレーションの論文再現と独自実験に共通するプロジェクトテンプレート．Cargo workspace + uv workspace の 2 プロジェクト構成（Rust シミュレーション + Python ツール）の雛形を提供する．
 
 ## 構成
 
@@ -43,7 +43,7 @@ template/
 
 ## 使い方（手動セットアップ）
 
-新規プロジェクトを `replications/<paper_key>/` 以下に作成する手順．`<paper_key>` は論文識別子（例: `axelrod1997`），`<name>` はパッケージプレフィックス（例: `axelrod`）．
+新規プロジェクトを `replications/<paper_key>/` または `experiments/<key>/` 以下に作成する手順．`<paper_key>` は論文識別子（例: `axelrod1997`），Experiment の `<key>` は kebab-case のテーマ名，`<name>` は両者とは別のパッケージプレフィックス（例: `axelrod`，`dollar-auction`．ハイフンを含む場合の Python モジュール名はアンダースコア形）．以下は Replication の例であり，Experiment では対象パスを `experiments/<key>` に置き換える．
 
 ```bash
 # 親リポジトリのルートで実行する想定
@@ -87,9 +87,9 @@ uv run axelrod-tools --help
 ## 留意点
 
 - テンプレート状態のファイル（`{{NAME}}` 未置換）は単独で実行できない．特に Python の import 文に placeholder が含まれるため，置換前は構文上有効でもランタイムエラーになる．
-- `simulation/src/main.rs` には clap の `run` / `sweep` サブコマンド分岐の最小骨格だけが含まれる．シミュレーションロジックは各論文ごとに実装する．`run` は `<output_dir>/config.json`，`sweep` は `<output_dir>/sweep_config.json` を必ず書き出すこと（`show-experiment-settings` が読む）．`sweep` 側に `--snapshot-interval N` (N>0) で各 run の `snapshots/step_*.csv` を出力する経路を用意しておくこと（`visualize-sweep` の組み合わせ別グリッドアニメーションが必要とする）．
-- `tools/src/<name>_tools/cli.py` は `visualize` / `visualize-sweep` / `show-experiment-settings` サブコマンドへのディスパッチ骨格．`reproduce` などの論文固有サブコマンドは必要に応じて追加する．
-- `visualize_sweep.py` は CLI 骨格と設計指針コメントだけを持つ TODO ファイル．パラメータ依存図と組み合わせ別グリッドアニメーション (`sweep_grid_animation.gif`) の実装は各論文で埋める（参考実装: `replications/schelling1971/`）．
-- `show_experiment_settings.py` は汎用の `--results-dir` モードのみを持つ．論文再現実験定義の一覧表示が必要な場合は `reproduce_paper.py` を作成し，そこから `Experiment` / `paper_experiments()` をインポートして拡張する（`replications/schelling1971/` 参照）．
+- `simulation/src/main.rs` には clap の `run` / `sweep` サブコマンド分岐の最小骨格だけが含まれる．シミュレーションロジックは各プロジェクトで実装する．`run` は `<output_dir>/config.json`，`sweep` は `<output_dir>/sweep_config.json` を必ず書き出すこと（`show-experiment-settings` が読む）．`sweep` 側に `--snapshot-interval N` (N>0) で各 run の `snapshots/step_*.csv` を出力する経路を用意しておくこと（`visualize-sweep` の組み合わせ別グリッドアニメーションが必要とする）．
+- `tools/src/<name>_tools/cli.py` は `visualize` / `visualize-sweep` / `show-experiment-settings` サブコマンドへのディスパッチ骨格．プロジェクト固有のサブコマンドは必要に応じて追加する．
+- `visualize_sweep.py` は CLI 骨格と設計指針コメントだけを持つ TODO ファイル．パラメータ依存図と組み合わせ別グリッドアニメーション (`sweep_grid_animation.gif`) の実装は各プロジェクトで埋める（参考実装: `replications/schelling1971/`）．
+- `show_experiment_settings.py` は汎用の `--results-dir` モードのみを持つ．Replication で論文再現実験定義の一覧表示が必要な場合に限り，`reproduce_paper.py` を作成し，そこから `Experiment` / `paper_experiments()` をインポートして拡張する（`replications/schelling1971/` 参照）．
 - `_claude/` は親リポジトリの `.gitignore`（`.claude/` 全体を除外）を回避するための仮名．コピー後は必ず `.claude/` にリネームすること．
-- リファレンス実装は `replications/schelling1971/` を参照．
+- 共通構成のリファレンス実装は `replications/schelling1971/` を参照．
