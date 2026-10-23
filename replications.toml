@@ -345,3 +345,11 @@ year = 2026
 title = "Escalation of LLM agents in the dollar auction"
 theme_en = "Dollar-auction escalation (theory vs. human vs. LLM)"
 theme_ja = "ドル・オークションのエスカレーション（理論・人間・LLM）"
+
+[[experiment]]
+key = "ipd-strategies"
+repo = "ipd-strategies"
+year = 2026
+title = "Round-robin tournament of iterated prisoner's dilemma strategies"
+theme_en = "Iterated prisoner's dilemma strategies (18-strategy round robin)"
+theme_ja = "繰り返し囚人のジレンマの戦略（18 戦略の総当たり）"
