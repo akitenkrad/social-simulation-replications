@@ -353,3 +353,11 @@ year = 2026
 title = "Round-robin tournament of iterated prisoner's dilemma strategies"
 theme_en = "Iterated prisoner's dilemma strategies (18-strategy round robin)"
 theme_ja = "繰り返し囚人のジレンマの戦略（18 戦略の総当たり）"
+
+[[experiment]]
+key = "fifo-tic-tac-toe"
+repo = "fifo-tic-tac-toe"
+year = 2026
+title = "Solving tic-tac-toe where the oldest mark vanishes"
+theme_en = "FIFO tic-tac-toe (retrograde analysis of a cyclic game)"
+theme_ja = "古い手が消える○×ゲーム（閉路のあるゲームの後退解析）"

@@ -94,3 +94,6 @@
 [submodule "experiments/ipd-strategies"]
 	path = experiments/ipd-strategies
 	url = git@github.com:akitenkrad/ipd-strategies.git
+[submodule "experiments/fifo-tic-tac-toe"]
+	path = experiments/fifo-tic-tac-toe
+	url = git@github.com:akitenkrad/fifo-tic-tac-toe.git
