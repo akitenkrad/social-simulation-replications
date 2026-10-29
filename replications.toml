@@ -361,3 +361,11 @@ year = 2026
 title = "Solving tic-tac-toe where the oldest mark vanishes"
 theme_en = "FIFO tic-tac-toe (retrograde analysis of a cyclic game)"
 theme_ja = "古い手が消える○×ゲーム（閉路のあるゲームの後退解析）"
+
+[[experiment]]
+key = "correlated-jury-theorem"
+repo = "correlated-jury-theorem"
+year = 2026
+title = "Majority accuracy under correlated votes"
+theme_en = "Condorcet jury theorem (structure vs. strength of vote correlation)"
+theme_ja = "相関のある陪審定理（似かたの強さと構造）"
