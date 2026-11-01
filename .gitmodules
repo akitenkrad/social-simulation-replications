@@ -100,3 +100,6 @@
 [submodule "experiments/correlated-jury-theorem"]
 	path = experiments/correlated-jury-theorem
 	url = git@github.com:akitenkrad/correlated-jury-theorem.git
+[submodule "experiments/rumor-forgetting"]
+	path = experiments/rumor-forgetting
+	url = git@github.com:akitenkrad/rumor-forgetting.git
