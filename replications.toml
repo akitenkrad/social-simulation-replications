@@ -5,8 +5,10 @@
 #     python3 tools/gen_catalog.py
 #
 # Fields per [[replication]]:
-#   key          identifier (lowercase author+year, e.g. "schelling1971"); also the table label
-#   repo         GitHub repo name under github.com/akitenkrad/<repo> (usually == key)
+#   key          "rep-{first author's surname, lowercase}{year}" (e.g. "rep-schelling1971"; a system
+#                built from several papers uses its name, e.g. "rep-logistello"); also the directory
+#                name, submodule path component, runvault repo_id, and table label
+#   repo         GitHub repo name under github.com/akitenkrad/<repo> (same as key)
 #   author       paper author string, kept in English (e.g. "Schelling", "Chuang et al.")
 #   year         integer publication year (used for sorting)
 #   year_display optional display string when the year is a range (e.g. "1994–1999")
@@ -19,10 +21,10 @@
 #   theme_ja     short theme label (Japanese)
 #
 # Required fields per [[experiment]]:
-#   key          lowercase kebab-case theme name matching ^[a-z0-9]+(-[a-z0-9]+)*$
-#                (e.g. "dollar-auction-escalation");
-#                also the directory name, submodule path component, and table label
-#   repo         GitHub repo name under github.com/akitenkrad/<repo> (usually == key)
+#   key          "exp-{subject}-{change}", lowercase kebab-case, 2-4 words after the prefix
+#                (e.g. "exp-dollar-auction-escalation");
+#                also the directory name, submodule path component, runvault repo_id, and table label
+#   repo         GitHub repo name under github.com/akitenkrad/<repo> (same as key)
 #   year         integer year the experiment started (used for sorting)
 #   title        short descriptive English title of the experiment
 #   theme_en     short theme label (English)

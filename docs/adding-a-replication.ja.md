@@ -32,7 +32,7 @@ template/
 
 | Placeholder | 意味 | 例 |
 |-------------|------|---|
-| `{{NAME}}` | パッケージプレフィックス（小文字英字推奨） | `axelrod`, `schelling` |
+| `{{NAME}}` | slug．key の `rep-` を付けないパッケージプレフィックス（小文字英字推奨） | `axelrod`, `schelling` |
 
 `{{NAME}}` 1 つから以下の識別子が派生する：
 
@@ -41,30 +41,44 @@ template/
 - Python package: `<NAME_snake>_tools` （ディレクトリ名・モジュール名．`<NAME>` のハイフンはアンダースコアに置き換える）
 - Python CLI: `<NAME>-tools`
 
+## 命名規則
+
+Replication は 2 つの識別子を持つ．両者は別の値であり，取り違えないこと．
+
+| 識別子 | 規則 | 例 | 用途 |
+|--------|------|----|------|
+| key（`<key>`） | `rep-{筆頭著者の姓（小文字）}{年}` | `rep-axelrod1997` | ディレクトリ名，Submodule のパス，GitHub リポジトリ名，runvault の `repo_id`，`replications.toml` の `key` / `repo` |
+| slug（`<name>`） | 短い小文字の名前．`rep-` プレフィックスは**付けない** | `axelrod` | Rust の crate・バイナリ，Python パッケージの名前（プレースホルダ `{{NAME}}`） |
+
+- 姓は小文字の ASCII 英字で書き，空白とハイフンは除く（Noelle-Neumann → `rep-noelleneumann1974`）．
+- 例外: 複数の論文から組み立てるシステムは，システム名を使う（`rep-logistello`）．
+- key は `^rep-[a-z0-9]+(-[a-z0-9]+)*$` に一致する．`replications.toml` の `repo` は `key` と同じ文字列にする．
+- key は runvault の `repo_id` でもあり，runvault-socsim は実験固有のイベント種別を `x.<repo_id>.<kind>` という名前空間に置く．そのためリポジトリを改名するとイベント種別も変わる．run の出力を読む側はイベント種別をハードコードしないこと．
+
 ## 使い方（手動セットアップ）
 
-新規プロジェクトを `replications/<paper_key>/` 以下に作成する手順．`<paper_key>` は論文識別子（例: `axelrod1997`），`<name>` はパッケージプレフィックス（例: `axelrod`）．
+新規プロジェクトを `replications/<key>/` 以下に作成する手順．`<key>` は key（例: `rep-axelrod1997`），`<name>` は slug（例: `axelrod`）である（[命名規則](#命名規則) を参照）．
 
 ```bash
 # 親リポジトリのルートで実行する想定
 
 # 1. テンプレートをコピー
-cp -R template/files replications/<paper_key>
+cp -R template/files replications/<key>
 
 # 2. プレースホルダ {{NAME}} を <name> に一括置換
 #    (macOS の sed は -i '' 形式が必要．Linux は -i だけで可)
-find replications/<paper_key> -type f -exec sed -i '' \
+find replications/<key> -type f -exec sed -i '' \
   -e 's/{{NAME}}_tools/<name_snake>_tools/g' -e 's/{{NAME}}/<name>/g' {} \;
 
 # 3. Python パッケージディレクトリをリネーム
-mv replications/<paper_key>/tools/src/_NAME_tools \
-   replications/<paper_key>/tools/src/<name_snake>_tools
+mv replications/<key>/tools/src/_NAME_tools \
+   replications/<key>/tools/src/<name_snake>_tools
 
 # 4. _claude/ を .claude/ にリネーム（親リポジトリの .gitignore 回避用の仮名）
-mv replications/<paper_key>/_claude replications/<paper_key>/.claude
+mv replications/<key>/_claude replications/<key>/.claude
 
 # 5. ビルド・依存解決を確認
-cd replications/<paper_key>
+cd replications/<key>
 cargo build --release
 uv sync
 uv run <name>-tools --help
@@ -75,7 +89,7 @@ uv run <name>-tools --help
 作成したディレクトリを新規リポジトリのルートとして初期化し，Submodule 登録前に最初のコミットを作成する：
 
 ```bash
-# replications/<paper_key> 内で引き続き実行
+# replications/<key> 内で引き続き実行
 git init
 git add .
 git commit -m "Initial replication implementation"
@@ -83,10 +97,10 @@ git commit -m "Initial replication implementation"
 
 ### 7. GitHub リポジトリを作成して push
 
-用途に応じて `--public` または `--private` を選び，`akitenkrad/<repo>` を作成して最初のコミットを push する：
+用途に応じて `--public` または `--private` を選び，`akitenkrad/<key>` を作成して最初のコミットを push する：
 
 ```bash
-gh repo create akitenkrad/<repo> --public --source . --push
+gh repo create akitenkrad/<key> --public --source . --push
 # 非公開にする場合は --public を --private に置き換える．
 ```
 
@@ -98,7 +112,7 @@ GitHub 側で先にリポジトリを作成し，`origin` を追加して現在�
 
 ```bash
 cd ../..
-git submodule add git@github.com:akitenkrad/<repo>.git replications/<paper_key>
+git submodule add git@github.com:akitenkrad/<key>.git replications/<key>
 ```
 
 `git submodule add` は追加先に既存の Git リポジトリがあっても受け付けるため，直前の手順で作成したディレクトリを削除したり，再 clone したりする必要はない．
@@ -122,12 +136,14 @@ python3 tools/gen_catalog.py --check
 親側では，Submodule の設定とポインタ，カタログの入力，生成ファイルを同じコミットに含める：
 
 ```bash
-git add .gitmodules replications/<paper_key> replications.toml \
+git add .gitmodules replications/<key> replications.toml \
   README.md README.ja.md docs/replications.md docs/replications.ja.md
-git commit -m "Add <paper_key> replication"
+git commit -m "Add <key> replication"
 ```
 
 ### 例: Axelrod (1997)
+
+key は `rep-axelrod1997`，slug は `axelrod`：
 
 ```bash
 cp -R template/files replications/rep-axelrod1997
@@ -140,6 +156,29 @@ cd replications/rep-axelrod1997
 cargo build --release
 uv sync
 uv run axelrod-tools --help
+
+git init
+git add .
+git commit -m "Initial replication implementation"
+gh repo create akitenkrad/rep-axelrod1997 --public --source . --push
+
+cd ../..
+git submodule add git@github.com:akitenkrad/rep-axelrod1997.git replications/rep-axelrod1997
+```
+
+対応する `replications.toml` のエントリでは，`key` と `repo` の両方に key を書く：
+
+```toml
+[[replication]]
+key = "rep-axelrod1997"
+repo = "rep-axelrod1997"
+author = "Axelrod"
+year = 1997
+title = "The Dissemination of Culture"
+paradigm = "classic-abm"
+domain = ""
+theme_en = "Cultural dissemination"
+theme_ja = "文化の伝播"
 ```
 
 ## 留意点

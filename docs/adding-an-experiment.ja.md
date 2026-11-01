@@ -23,11 +23,21 @@ template/
         └── src/_NAME_tools/       ← {NAME}_tools にリネーム必要
 ```
 
-## 識別子
+## 命名規則
 
-Experiment の `<key>` は `^[a-z0-9]+(-[a-z0-9]+)*$` に一致する小文字 kebab-case のテーマ名とする．例は `dollar-auction-escalation` であり，ディレクトリ名，Submodule のパス要素，通常は GitHub リポジトリ名にも使用する．
+Experiment は 2 つの識別子を持つ．両者は別の値であり，取り違えないこと．
 
-テンプレートの `<name>` は slug（crate・バイナリ・Python の名前をすべて導く，key とは別の短い小文字識別子）である．ハイフンは可，アンダースコアは不可（例 `dollar-auction`）．`<name_snake>` はハイフンをアンダースコアに置き換えた同じ値（`dollar_auction`）で，Python のモジュールディレクトリと `[project.scripts]` の参照先にだけ使う．すべての派生名が 1 つの slug から導かれていることは `tools/review-kit` が検査する．
+| 識別子 | 規則 | 例 | 用途 |
+|--------|------|----|------|
+| key（`<key>`） | `exp-{subject}-{change}`．小文字 kebab-case で，プレフィックスの後ろは 2〜4 語 | `exp-dollar-auction-escalation` | ディレクトリ名，Submodule のパス，GitHub リポジトリ名，runvault の `repo_id`，`replications.toml` の `key` / `repo` |
+| slug（`<name>`） | 短い小文字の名前．`exp-` プレフィックスは**付けない** | `dollar-auction` | Rust の crate・バイナリ，Python パッケージの名前（プレースホルダ `{{NAME}}`） |
+
+- *subject* は回すゲームやモデル（`dollar-auction`，`rumor`），*change* は教科書的な設定から変えた点（`escalation`，`forgetting`）である．
+- key は `^exp-[a-z0-9]+(-[a-z0-9]+)*$` に一致する．`replications.toml` の `repo` は `key` と同じ文字列にする．
+- この規則より前からある 5 本の実験は `exp-<旧 key>` に改名し，それ以外はそのまま残した．そのため，すべてが subject–change の形に読めるわけではない．
+- key は runvault の `repo_id` でもあり，runvault-socsim は実験固有のイベント種別を `x.<repo_id>.<kind>` という名前空間に置く．そのためリポジトリを改名するとイベント種別も変わる．run の出力を読む側はイベント種別をハードコードしないこと．
+
+slug はハイフンを含んでよいが，アンダースコアは不可（例 `dollar-auction`）．`<name_snake>` はハイフンをアンダースコアに置き換えた同じ値（`dollar_auction`）で，Python のモジュールディレクトリと `[project.scripts]` の参照先にだけ使う．すべての派生名が 1 つの slug から導かれていることは `tools/review-kit` が検査する．
 
 ## 使い方（手動セットアップ）
 
@@ -68,10 +78,10 @@ git commit -m "Initial experiment implementation"
 
 ### 7. GitHub リポジトリを作成して push
 
-用途に応じて `--public` または `--private` を選び，`akitenkrad/<repo>` を作成して最初のコミットを push する：
+用途に応じて `--public` または `--private` を選び，`akitenkrad/<key>` を作成して最初のコミットを push する：
 
 ```bash
-gh repo create akitenkrad/<repo> --public --source . --push
+gh repo create akitenkrad/<key> --public --source . --push
 # 非公開にする場合は --public を --private に置き換える．
 ```
 
@@ -81,7 +91,7 @@ GitHub 側で先にリポジトリを作成し，`origin` を追加して現在�
 
 ```bash
 cd ../..
-git submodule add git@github.com:akitenkrad/<repo>.git experiments/<key>
+git submodule add git@github.com:akitenkrad/<key>.git experiments/<key>
 ```
 
 `git submodule add` は追加先に既存の Git リポジトリがあっても受け付けるため，作成してコミットしたディレクトリを削除したり，再 clone したりする必要はない．
@@ -92,8 +102,8 @@ git submodule add git@github.com:akitenkrad/<repo>.git experiments/<key>
 
 ```toml
 [[experiment]]
-key = "dollar-auction-escalation"
-repo = "dollar-auction-escalation"
+key = "exp-dollar-auction-escalation"
+repo = "exp-dollar-auction-escalation"
 year = 2026
 title = "LLM-Agent Escalation in the Dollar Auction"
 theme_en = "Escalation and sunk-cost behavior"
@@ -114,6 +124,22 @@ git add .gitmodules experiments/<key> replications.toml \
   README.md README.ja.md docs/experiments.md docs/experiments.ja.md
 git commit -m "Add <key> experiment"
 ```
+
+### 例: ドル・オークションのエスカレーション
+
+key は `exp-dollar-auction-escalation`，slug は `dollar-auction`（snake 形は `dollar_auction`）：
+
+```bash
+cp -R template/files experiments/exp-dollar-auction-escalation
+find experiments/exp-dollar-auction-escalation -type f -exec sed -i '' \
+  -e 's/{{NAME}}_tools/dollar_auction_tools/g' -e 's/{{NAME}}/dollar-auction/g' {} \;
+mv experiments/exp-dollar-auction-escalation/tools/src/_NAME_tools \
+   experiments/exp-dollar-auction-escalation/tools/src/dollar_auction_tools
+mv experiments/exp-dollar-auction-escalation/_claude experiments/exp-dollar-auction-escalation/.claude
+```
+
+その後，リポジトリを `akitenkrad/exp-dollar-auction-escalation` として作成し，
+`git submodule add git@github.com:akitenkrad/exp-dollar-auction-escalation.git experiments/exp-dollar-auction-escalation` で追加する．
 
 ## Run の記録
 

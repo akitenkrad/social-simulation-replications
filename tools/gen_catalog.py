@@ -103,7 +103,8 @@ def load_catalog() -> tuple[list[dict], list[dict]]:
 # Keys every [[replication]] entry must define for the catalog to render.
 REQUIRED_KEYS = ("key", "repo", "author", "year", "title", "paradigm", "theme_en", "theme_ja")
 EXPERIMENT_REQUIRED_KEYS = ("key", "repo", "year", "title", "theme_en", "theme_ja")
-EXPERIMENT_KEY_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+EXPERIMENT_KEY_RE = re.compile(r"^exp-[a-z0-9]+(-[a-z0-9]+)*$")
+REPLICATION_KEY_RE = re.compile(r"^rep-[a-z0-9]+(-[a-z0-9]+)*$")
 
 
 def validate_replications(reps: list[dict]) -> None:
@@ -121,6 +122,13 @@ def validate_replications(reps: list[dict]) -> None:
         for k in REQUIRED_KEYS:
             if k not in rep:
                 errors.append(f"[{ident}] missing required field '{k}'")
+        key = rep.get("key")
+        if key is not None and (not isinstance(key, str) or REPLICATION_KEY_RE.fullmatch(key) is None):
+            errors.append(
+                f"[{ident}] invalid replication key {key!r}. "
+                "Expected rep- followed by lowercase kebab-case, matching "
+                f"{REPLICATION_KEY_RE.pattern}."
+            )
         paradigm = rep.get("paradigm")
         if paradigm is not None and paradigm not in GROUP_ORDER:
             errors.append(
@@ -164,7 +172,7 @@ def validate_experiments(experiments: list[dict], reps: list[dict]) -> None:
             if not isinstance(key, str) or EXPERIMENT_KEY_RE.fullmatch(key) is None:
                 errors.append(
                     f"[{ident}] invalid experiment key {key!r}. "
-                    "Expected lowercase kebab-case matching "
+                    "Expected exp- followed by lowercase kebab-case, matching "
                     f"{EXPERIMENT_KEY_RE.pattern}."
                 )
             if isinstance(key, str):

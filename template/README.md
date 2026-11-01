@@ -32,44 +32,47 @@ template/
 
 | Placeholder | 意味 | 例 |
 |-------------|------|---|
-| `{{NAME}}` | パッケージプレフィックス（小文字英字推奨） | `axelrod`, `schelling` |
+| `{{NAME}}` | slug．key の `rep-` / `exp-` を付けないパッケージプレフィックス（小文字英字推奨） | `axelrod`, `schelling` |
 
 `{{NAME}}` 1 つから以下の識別子が派生する：
 
 - Rust crate: `<NAME>-simulation`
 - Rust binary: `<NAME>`
-- Python package: `<NAME>_tools` （ディレクトリ名・モジュール名）
+- Python package: `<NAME_snake>_tools` （ディレクトリ名・モジュール名．`<NAME>` のハイフンはアンダースコアに置き換える）
 - Python CLI: `<NAME>-tools`
 
 ## 使い方（手動セットアップ）
 
-新規プロジェクトを `replications/<paper_key>/` または `experiments/<key>/` 以下に作成する手順．`<paper_key>` は論文識別子（例: `axelrod1997`），Experiment の `<key>` は kebab-case のテーマ名，`<name>` は両者とは別のパッケージプレフィックス（例: `axelrod`，`dollar-auction`．ハイフンを含む場合の Python モジュール名はアンダースコア形）．以下は Replication の例であり，Experiment では対象パスを `experiments/<key>` に置き換える．
+新規プロジェクトを `replications/<key>/` または `experiments/<key>/` 以下に作成する手順．`<key>` はディレクトリ名・Submodule のパス・GitHub リポジトリ名・runvault の `repo_id` を兼ねる識別子で，Replication は `rep-{筆頭著者の姓}{年}`（例: `rep-axelrod1997`），Experiment は `exp-{subject}-{change}`（例: `exp-dollar-auction-escalation`）とする．`<name>` は key とは別の slug で，プレフィックスを付けない（例: `axelrod`，`dollar-auction`．ハイフンを含む場合の Python モジュール名 `<name_snake>` はアンダースコア形）．規則の詳細は [docs/adding-a-replication.ja.md](../docs/adding-a-replication.ja.md#命名規則) と [docs/adding-an-experiment.ja.md](../docs/adding-an-experiment.ja.md#命名規則) を参照．以下は Replication の例であり，Experiment では対象パスを `experiments/<key>` に置き換える．
 
 ```bash
 # 親リポジトリのルートで実行する想定
 
 # 1. テンプレートをコピー
-cp -R template/files replications/<paper_key>
+cp -R template/files replications/<key>
 
 # 2. プレースホルダ {{NAME}} を <name> に一括置換
 #    (macOS の sed は -i '' 形式が必要．Linux は -i だけで可)
-find replications/<paper_key> -type f -exec sed -i '' 's/{{NAME}}/<name>/g' {} \;
+find replications/<key> -type f -exec sed -i '' \
+  -e 's/{{NAME}}_tools/<name_snake>_tools/g' -e 's/{{NAME}}/<name>/g' {} \;
 
 # 3. Python パッケージディレクトリをリネーム
-mv replications/<paper_key>/tools/src/_NAME_tools \
-   replications/<paper_key>/tools/src/<name>_tools
+mv replications/<key>/tools/src/_NAME_tools \
+   replications/<key>/tools/src/<name_snake>_tools
 
 # 4. _claude/ を .claude/ にリネーム（親リポジトリの .gitignore 回避用の仮名）
-mv replications/<paper_key>/_claude replications/<paper_key>/.claude
+mv replications/<key>/_claude replications/<key>/.claude
 
 # 5. ビルド・依存解決を確認
-cd replications/<paper_key>
+cd replications/<key>
 cargo build --release
 uv sync
 uv run <name>-tools --help
 ```
 
 ### 例: Axelrod (1997)
+
+key は `rep-axelrod1997`，slug は `axelrod`：
 
 ```bash
 cp -R template/files replications/rep-axelrod1997

@@ -450,8 +450,8 @@ def check_name_consistency(root: Path, rule: dict) -> list[Finding]:
             _mk(
                 rule,
                 key_path,
-                f"内部識別子 (paper_key) '{key}' が規約の形式に一致しません",
-                "{筆頭著者の姓 (小文字 ASCII)}{発行年4桁} 形式にする (例: schelling1971)",
+                f"内部識別子 (slug) '{key}' が規約の形式に一致しません",
+                "規約の形式にする (例: schelling．ディレクトリ名 rep-schelling1971 から rep- と年を除いた部分)",
             )
         )
     for exp in rule.get("expect", []):
@@ -463,7 +463,7 @@ def check_name_consistency(root: Path, rule: dict) -> list[Finding]:
             f = _mk(
                 rule,
                 rel,
-                f"'{actual}' が paper_key '{key}' から導かれる名前と一致しません",
+                f"'{actual}' が slug '{key}' から導かれる名前と一致しません",
                 f"'{wanted}' にリネームする",
             )
             f.tag = "inconsistent"

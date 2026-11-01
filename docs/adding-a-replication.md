@@ -32,7 +32,7 @@ template/
 
 | Placeholder | Meaning | Example |
 |-------------|---------|---------|
-| `{{NAME}}` | Package prefix (lowercase letters recommended) | `axelrod`, `schelling` |
+| `{{NAME}}` | The slug: package prefix without the `rep-` key prefix (lowercase letters recommended) | `axelrod`, `schelling` |
 
 A single `{{NAME}}` derives the following identifiers:
 
@@ -41,30 +41,44 @@ A single `{{NAME}}` derives the following identifiers:
 - Python package: `<NAME_snake>_tools` (directory name / module name; hyphens in `<NAME>` become underscores)
 - Python CLI: `<NAME>-tools`
 
+## Naming
+
+Every replication has two identifiers. They are different values and must not be confused.
+
+| Identifier | Rule | Example | Used for |
+|------------|------|---------|----------|
+| key (`<key>`) | `rep-{first author's surname, lowercase}{year}` | `rep-axelrod1997` | directory name, submodule path, GitHub repository name, runvault `repo_id`, and `key` / `repo` in `replications.toml` |
+| slug (`<name>`) | short lowercase name, **no** `rep-` prefix | `axelrod` | Rust crate, binary, and Python package names (the `{{NAME}}` placeholder) |
+
+- The surname is written in lowercase ASCII letters with spaces and hyphens removed (Noelle-Neumann → `rep-noelleneumann1974`).
+- Exception: a system reconstructed from several papers uses the system name instead (`rep-logistello`).
+- The key matches `^rep-[a-z0-9]+(-[a-z0-9]+)*$`; `repo` in `replications.toml` is the same string as `key`.
+- Because the key is the runvault `repo_id`, and runvault-socsim namespaces experiment-local event kinds as `x.<repo_id>.<kind>`, renaming a repository changes its event kinds. Readers of run output should not hard-code them.
+
 ## Usage (manual setup)
 
-Steps to create a new project under `replications/<paper_key>/`. `<paper_key>` is the paper identifier (e.g. `axelrod1997`), and `<name>` is the package prefix (e.g. `axelrod`).
+Steps to create a new project under `replications/<key>/`. `<key>` is the key (e.g. `rep-axelrod1997`), and `<name>` is the slug (e.g. `axelrod`); see [Naming](#naming).
 
 ```bash
 # Intended to be run from the parent repository root
 
 # 1. Copy the template
-cp -R template/files replications/<paper_key>
+cp -R template/files replications/<key>
 
 # 2. Replace the {{NAME}} placeholder with <name> everywhere
 #    (macOS sed needs the -i '' form; on Linux -i alone is fine)
-find replications/<paper_key> -type f -exec sed -i '' \
+find replications/<key> -type f -exec sed -i '' \
   -e 's/{{NAME}}_tools/<name_snake>_tools/g' -e 's/{{NAME}}/<name>/g' {} \;
 
 # 3. Rename the Python package directory
-mv replications/<paper_key>/tools/src/_NAME_tools \
-   replications/<paper_key>/tools/src/<name_snake>_tools
+mv replications/<key>/tools/src/_NAME_tools \
+   replications/<key>/tools/src/<name_snake>_tools
 
 # 4. Rename _claude/ to .claude/ (the placeholder name dodges the parent repo's .gitignore)
-mv replications/<paper_key>/_claude replications/<paper_key>/.claude
+mv replications/<key>/_claude replications/<key>/.claude
 
 # 5. Verify the build and dependency resolution
-cd replications/<paper_key>
+cd replications/<key>
 cargo build --release
 uv sync
 uv run <name>-tools --help
@@ -75,7 +89,7 @@ uv run <name>-tools --help
 The scaffolded directory becomes the root of the new repository. Create its first commit before registering it as a submodule:
 
 ```bash
-# Still inside replications/<paper_key>
+# Still inside replications/<key>
 git init
 git add .
 git commit -m "Initial replication implementation"
@@ -83,10 +97,10 @@ git commit -m "Initial replication implementation"
 
 ### 7. Create and push the GitHub repository
 
-Create `akitenkrad/<repo>` with the appropriate visibility and push the first commit. Choose either `--public` or `--private` for the repository being created:
+Create `akitenkrad/<key>` with the appropriate visibility and push the first commit. Choose either `--public` or `--private` for the repository being created:
 
 ```bash
-gh repo create akitenkrad/<repo> --public --source . --push
+gh repo create akitenkrad/<key> --public --source . --push
 # Or replace --public with --private.
 ```
 
@@ -98,7 +112,7 @@ Return to the parent monorepo and add the submodule at the scaffolded path:
 
 ```bash
 cd ../..
-git submodule add git@github.com:akitenkrad/<repo>.git replications/<paper_key>
+git submodule add git@github.com:akitenkrad/<key>.git replications/<key>
 ```
 
 `git submodule add` accepts an existing Git repository at the destination path, so the directory created and committed in the preceding steps does not need to be removed or cloned again.
@@ -122,12 +136,14 @@ python3 tools/gen_catalog.py --check
 The parent commit records the submodule configuration and pointer together with the catalog source and generated files:
 
 ```bash
-git add .gitmodules replications/<paper_key> replications.toml \
+git add .gitmodules replications/<key> replications.toml \
   README.md README.ja.md docs/replications.md docs/replications.ja.md
-git commit -m "Add <paper_key> replication"
+git commit -m "Add <key> replication"
 ```
 
 ### Example: Axelrod (1997)
+
+Key `rep-axelrod1997`, slug `axelrod`:
 
 ```bash
 cp -R template/files replications/rep-axelrod1997
@@ -140,6 +156,29 @@ cd replications/rep-axelrod1997
 cargo build --release
 uv sync
 uv run axelrod-tools --help
+
+git init
+git add .
+git commit -m "Initial replication implementation"
+gh repo create akitenkrad/rep-axelrod1997 --public --source . --push
+
+cd ../..
+git submodule add git@github.com:akitenkrad/rep-axelrod1997.git replications/rep-axelrod1997
+```
+
+The corresponding `replications.toml` entry uses the key for both `key` and `repo`:
+
+```toml
+[[replication]]
+key = "rep-axelrod1997"
+repo = "rep-axelrod1997"
+author = "Axelrod"
+year = 1997
+title = "The Dissemination of Culture"
+paradigm = "classic-abm"
+domain = ""
+theme_en = "Cultural dissemination"
+theme_ja = "文化の伝播"
 ```
 
 ## Caveats
