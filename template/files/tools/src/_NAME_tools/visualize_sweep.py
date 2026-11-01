@@ -4,7 +4,7 @@
 の関係（1D 折れ線 / 2D ヒートマップ）と，各組み合わせ毎のグリッド進行アニメーション
 を生成する．
 
-プロジェクト固有のメトリクス・配色・ラベルは各実装で埋める．参考実装は `replications/schelling1971/`．
+プロジェクト固有のメトリクス・配色・ラベルは各実装で埋める．参考実装は `replications/rep-schelling1971/`．
 
 ## 出力（想定）
 
@@ -83,7 +83,7 @@ def main(argv: list[str] | None = None) -> None:
     #   3. 1D / 2D を自動判別し，sweep_*.png を保存
     #   4. args.no_grid_animation が False なら，各セル run の snapshots/ を読み込んで
     #      合成 GIF (sweep_grid_animation.gif) を生成
-    #   参考実装: replications/schelling1971/tools/src/schelling_tools/visualize_sweep.py
+    #   参考実装: replications/rep-schelling1971/tools/src/schelling_tools/visualize_sweep.py
     print(
         "TODO: visualize-sweep "
         f"(sweep_dir={args.sweep_dir}, output_dir={args.output_dir}, "

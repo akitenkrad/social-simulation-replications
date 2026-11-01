@@ -117,11 +117,11 @@ git commit -m "Add <key> experiment"
 
 ## Run recording
 
-Runvault wiring is not part of the template. Follow `replications/schelling1971/`, including its `runvault.toml`, the Rust `runvault` dependency, and the Python `runvault[read]` dependency when the experiment needs managed run output. Always pass `--scratch` for development, debugging, and smoke-test runs; scratch runs are stored under `results/_scratch/` and are not synced.
+Runvault wiring is not part of the template. Follow `replications/rep-schelling1971/`, including its `runvault.toml`, the Rust `runvault` dependency, and the Python `runvault[read]` dependency when the experiment needs managed run output. Always pass `--scratch` for development, debugging, and smoke-test runs; scratch runs are stored under `results/_scratch/` and are not synced.
 
 ## Caveats
 
 - A file still in template form (`{{NAME}}` not yet substituted) cannot run on its own.
 - Implement project-specific simulation logic and analysis commands after scaffolding.
 - `_claude/` is a placeholder name that avoids the parent repository's `.gitignore`; always rename it to `.claude/` after copying.
-- See `replications/schelling1971/` for a complete implementation of the shared scaffold and runvault integration.
+- See `replications/rep-schelling1971/` for a complete implementation of the shared scaffold and runvault integration.

@@ -31,8 +31,8 @@
 # --- Classic agent-based models -------------------------------------------------
 
 [[replication]]
-key = "schelling1971"
-repo = "schelling1971"
+key = "rep-schelling1971"
+repo = "rep-schelling1971"
 author = "Schelling"
 year = 1971
 title = "Dynamic Models of Segregation"
@@ -42,8 +42,8 @@ theme_en = "Residential segregation"
 theme_ja = "住み分け（分居）"
 
 [[replication]]
-key = "granovetter1973"
-repo = "granovetter1973"
+key = "rep-granovetter1973"
+repo = "rep-granovetter1973"
 author = "Granovetter"
 year = 1973
 title = "The Strength of Weak Ties"
@@ -53,8 +53,8 @@ theme_en = "Weak ties / networks"
 theme_ja = "弱い紐帯・ネットワーク"
 
 [[replication]]
-key = "axelrod1997"
-repo = "axelrod1997"
+key = "rep-axelrod1997"
+repo = "rep-axelrod1997"
 author = "Axelrod"
 year = 1997
 title = "The Dissemination of Culture"
@@ -64,8 +64,8 @@ theme_en = "Cultural dissemination"
 theme_ja = "文化の伝播"
 
 [[replication]]
-key = "hegselmann2002"
-repo = "hegselmann2002"
+key = "rep-hegselmann2002"
+repo = "rep-hegselmann2002"
 author = "Hegselmann & Krause"
 year = 2002
 title = "Opinion Dynamics and Bounded Confidence: Models, Analysis and Simulation"
@@ -75,8 +75,8 @@ theme_en = "Bounded confidence (HK)"
 theme_ja = "限定信頼モデル"
 
 [[replication]]
-key = "hegselmann2005"
-repo = "hegselmann2005"
+key = "rep-hegselmann2005"
+repo = "rep-hegselmann2005"
 author = "Hegselmann & Krause"
 year = 2005
 title = "Opinion Dynamics Driven by Various Ways of Averaging"
@@ -86,8 +86,8 @@ theme_en = "Opinion dynamics (averaging operators)"
 theme_ja = "意見ダイナミクス (平均演算子)"
 
 [[replication]]
-key = "noelleneumann1974"
-repo = "noelleneumann1974"
+key = "rep-noelleneumann1974"
+repo = "rep-noelleneumann1974"
 author = "Noelle-Neumann"
 year = 1974
 title = "The Spiral of Silence: A Theory of Public Opinion"
@@ -100,8 +100,8 @@ theme_ja = "沈黙の螺旋 (世論形成)"
 
 # domain: opinion-norms
 [[replication]]
-key = "chuang2024"
-repo = "chuang2024"
+key = "rep-chuang2024"
+repo = "rep-chuang2024"
 author = "Chuang et al."
 year = 2024
 title = "Simulating Opinion Dynamics with Networks of LLM-based Agents"
@@ -111,8 +111,8 @@ theme_en = "Opinion dynamics"
 theme_ja = "意見ダイナミクス"
 
 [[replication]]
-key = "ren2024"
-repo = "ren2024"
+key = "rep-ren2024"
+repo = "rep-ren2024"
 author = "Ren et al."
 year = 2024
 title = "Emergence of Social Norms in Generative Agent Societies (CRSEC)"
@@ -122,8 +122,8 @@ theme_en = "Social norms"
 theme_ja = "社会規範"
 
 [[replication]]
-key = "mou2024"
-repo = "mou2024"
+key = "rep-mou2024"
+repo = "rep-mou2024"
 author = "Mou et al."
 year = 2024
 title = "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim)"
@@ -133,8 +133,8 @@ theme_en = "Social movements"
 theme_ja = "社会運動"
 
 [[replication]]
-key = "knoll2013"
-repo = "knoll2013"
+key = "rep-knoll2013"
+repo = "rep-knoll2013"
 author = "Knoll & van Dick"
 year = 2013
 title = "Do I Hear the Whistle…? A First Attempt to Measure Four Forms of Employee Silence and Their Correlates"
@@ -144,8 +144,8 @@ theme_en = "Employee silence (4 forms)"
 theme_ja = "従業員サイレンス (4 動機形態)"
 
 [[replication]]
-key = "brinsfield2013"
-repo = "brinsfield2013"
+key = "rep-brinsfield2013"
+repo = "rep-brinsfield2013"
 author = "Brinsfield"
 year = 2013
 title = "Employee Silence Motives: Investigation of Dimensionality and Development of Measures"
@@ -155,8 +155,8 @@ theme_en = "Employee silence (6 motives)"
 theme_ja = "従業員サイレンス (6 動機次元)"
 
 [[replication]]
-key = "detert2011"
-repo = "detert2011"
+key = "rep-detert2011"
+repo = "rep-detert2011"
 author = "Detert & Edmondson"
 year = 2011
 title = "Implicit Voice Theories: Taken-for-Granted Rules of Self-Censorship at Work"
@@ -166,8 +166,8 @@ theme_en = "Implicit voice theories (self-censorship)"
 theme_ja = "暗黙の発言理論 (自己検閲)"
 
 [[replication]]
-key = "edmondson1999"
-repo = "edmondson1999"
+key = "rep-edmondson1999"
+repo = "rep-edmondson1999"
 author = "Edmondson"
 year = 1999
 title = "Psychological Safety and Learning Behavior in Work Teams"
@@ -177,8 +177,8 @@ theme_en = "Psychological safety & team learning"
 theme_ja = "心理的安全性とチーム学習"
 
 [[replication]]
-key = "fujimura2019"
-repo = "fujimura2019"
+key = "rep-fujimura2019"
+repo = "rep-fujimura2019"
 author = "Fujimura & Hino"
 year = 2019
 title = "Silence and Voice in the Organization: The Influences of Silence Motives and Psychological Safety"
@@ -188,8 +188,8 @@ theme_en = "Silence/voice SEM (Japan)"
 theme_ja = "沈黙・発言の規定要因 SEM (日本)"
 
 [[replication]]
-key = "argyle2023"
-repo = "argyle2023"
+key = "rep-argyle2023"
+repo = "rep-argyle2023"
 author = "Argyle et al."
 year = 2023
 title = "Out of One, Many: Using Language Models to Simulate Human Samples"
@@ -199,8 +199,8 @@ theme_en = "Silicon samples (survey/opinion)"
 theme_ja = "シリコンサンプル (世論・調査)"
 
 [[replication]]
-key = "sun2024"
-repo = "sun2024"
+key = "rep-sun2024"
+repo = "rep-sun2024"
 author = "Sun et al."
 year = 2024
 title = "Random Silicon Sampling: Simulating Human Sub-Population Opinion Using a Large Language Model Based on Group-Level Demographic Information"
@@ -210,8 +210,8 @@ theme_en = "Group-level silicon sampling (logprob-free)"
 theme_ja = "集団レベルのシリコンサンプリング (logprob 非依存)"
 
 [[replication]]
-key = "gong2026"
-repo = "gong2026"
+key = "rep-gong2026"
+repo = "rep-gong2026"
 author = "Gong et al."
 year = 2026
 title = "Characterizing the Ability of LLMs to Recapitulate Americans' Distributional Responses to Public Opinion Polling Questions Across Political Issues"
@@ -222,8 +222,8 @@ theme_ja = "分布直接予測 (DD) と個人反復 (SI) の比較 (logprob 非�
 
 # domain: economy
 [[replication]]
-key = "li2024"
-repo = "li2024"
+key = "rep-li2024"
+repo = "rep-li2024"
 author = "Li et al."
 year = 2024
 title = "EconAgent: LLM-Empowered Agents for Simulating Macroeconomic Activities"
@@ -233,8 +233,8 @@ theme_en = "Macroeconomics"
 theme_ja = "マクロ経済"
 
 [[replication]]
-key = "han2023"
-repo = "han2023"
+key = "rep-han2023"
+repo = "rep-han2023"
 author = "Han et al."
 year = 2023
 title = "Guinea Pig Trials Utilizing GPT: A Smart Agent-Based Modeling Approach for Studying Firm Competition and Collusion (SABM)"
@@ -244,8 +244,8 @@ theme_en = "Firm competition"
 theme_ja = "企業間競争・共謀"
 
 [[replication]]
-key = "ji2024"
-repo = "ji2024"
+key = "rep-ji2024"
+repo = "rep-ji2024"
 author = "Ji et al."
 year = 2024
 title = "SRAP-Agent: Simulating and Optimizing Scarce Resource Allocation Policy with LLM-based Agent"
@@ -256,8 +256,8 @@ theme_ja = "資源配分"
 
 # domain: competition-conflict
 [[replication]]
-key = "zhao2024"
-repo = "zhao2024"
+key = "rep-zhao2024"
+repo = "rep-zhao2024"
 author = "Zhao et al."
 year = 2024
 title = "CompeteAI: Understanding the Competition Dynamics of LLM-based Agents"
@@ -267,8 +267,8 @@ theme_en = "Competition"
 theme_ja = "競争"
 
 [[replication]]
-key = "hua2024"
-repo = "hua2024"
+key = "rep-hua2024"
+repo = "rep-hua2024"
 author = "Hua et al."
 year = 2024
 title = "War and Peace (WarAgent): LLM-based Multi-Agent Simulation of World Wars"
@@ -279,8 +279,8 @@ theme_ja = "国際紛争"
 
 # domain: platform-scale
 [[replication]]
-key = "gao2023"
-repo = "gao2023"
+key = "rep-gao2023"
+repo = "rep-gao2023"
 author = "Gao et al."
 year = 2023
 title = "S3: Social-network Simulation System with LLM-Empowered Agents"
@@ -290,8 +290,8 @@ theme_en = "Social-network platform"
 theme_ja = "ソーシャルネットワーク基盤"
 
 [[replication]]
-key = "yang2024"
-repo = "yang2024"
+key = "rep-yang2024"
+repo = "rep-yang2024"
 author = "Yang et al."
 year = 2024
 title = "OASIS: Open Agent Social Interaction Simulations with One Million Agents"
@@ -301,8 +301,8 @@ theme_en = "Large-scale platform"
 theme_ja = "大規模シミュレーション基盤"
 
 [[replication]]
-key = "wang2025"
-repo = "wang2025"
+key = "rep-wang2025"
+repo = "rep-wang2025"
 author = "Wang et al."
 year = 2025
 title = "YuLan-OneSim: Towards the Next Generation of Social Simulator with Large Language Models"
@@ -312,8 +312,8 @@ theme_en = "Simulator platform"
 theme_ja = "シミュレータ基盤"
 
 [[replication]]
-key = "jones2022"
-repo = "jones2022"
+key = "rep-jones2022"
+repo = "rep-jones2022"
 author = "Jones & Steinhardt"
 year = 2022
 title = "Capturing Failures of Large Language Models via Human Cognitive Biases"
@@ -325,8 +325,8 @@ theme_ja = "人間の認知バイアスを介した LLM の質的失敗の誘発
 # --- Game AI / other ------------------------------------------------------------
 
 [[replication]]
-key = "logistello"
-repo = "rs-logistello"
+key = "rep-logistello"
+repo = "rep-logistello"
 author = "Buro"
 year = 1994
 year_display = "1994–1999"
@@ -339,40 +339,40 @@ theme_ja = "オセロのゲーム AI"
 # --- Experiments (no source paper) ---------------------------------------------
 
 [[experiment]]
-key = "dollar-auction-escalation"
-repo = "dollar-auction-escalation"
+key = "exp-dollar-auction-escalation"
+repo = "exp-dollar-auction-escalation"
 year = 2026
 title = "Escalation of LLM agents in the dollar auction"
 theme_en = "Dollar-auction escalation (theory vs. human vs. LLM)"
 theme_ja = "ドル・オークションのエスカレーション（理論・人間・LLM）"
 
 [[experiment]]
-key = "ipd-strategies"
-repo = "ipd-strategies"
+key = "exp-ipd-strategies"
+repo = "exp-ipd-strategies"
 year = 2026
 title = "Round-robin tournament of iterated prisoner's dilemma strategies"
 theme_en = "Iterated prisoner's dilemma strategies (18-strategy round robin)"
 theme_ja = "繰り返し囚人のジレンマの戦略（18 戦略の総当たり）"
 
 [[experiment]]
-key = "fifo-tic-tac-toe"
-repo = "fifo-tic-tac-toe"
+key = "exp-fifo-tic-tac-toe"
+repo = "exp-fifo-tic-tac-toe"
 year = 2026
 title = "Solving tic-tac-toe where the oldest mark vanishes"
 theme_en = "FIFO tic-tac-toe (retrograde analysis of a cyclic game)"
 theme_ja = "古い手が消える○×ゲーム（閉路のあるゲームの後退解析）"
 
 [[experiment]]
-key = "correlated-jury-theorem"
-repo = "correlated-jury-theorem"
+key = "exp-correlated-jury-theorem"
+repo = "exp-correlated-jury-theorem"
 year = 2026
 title = "Majority accuracy under correlated votes"
 theme_en = "Condorcet jury theorem (structure vs. strength of vote correlation)"
 theme_ja = "相関のある陪審定理（似かたの強さと構造）"
 
 [[experiment]]
-key = "rumor-forgetting"
-repo = "rumor-forgetting"
+key = "exp-rumor-forgetting"
+repo = "exp-rumor-forgetting"
 year = 2026
 title = "Rumor spreading with forgetting on networks"
 theme_en = "Rumor persistence (Maki–Thompson with forgetting)"

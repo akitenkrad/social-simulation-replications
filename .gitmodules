@@ -1,105 +1,105 @@
 [submodule "replications/schelling1971"]
-	path = replications/schelling1971
-	url = git@github.com:akitenkrad/schelling1971.git
+	path = replications/rep-schelling1971
+	url = git@github.com:akitenkrad/rep-schelling1971.git
 [submodule "replications/axelrod1997"]
-	path = replications/axelrod1997
-	url = git@github.com:akitenkrad/axelrod1997.git
+	path = replications/rep-axelrod1997
+	url = git@github.com:akitenkrad/rep-axelrod1997.git
 [submodule "simulators/rs-othello-sim"]
 	path = simulators/rs-othello-sim
 	url = git@github.com:akitenkrad/rs-othello-sim.git
 [submodule "replications/logistello"]
-	path = replications/logistello
-	url = git@github.com:akitenkrad/rs-logistello.git
+	path = replications/rep-logistello
+	url = git@github.com:akitenkrad/rep-logistello.git
 [submodule "simulators/rs-social-simulation-tools"]
 	path = simulators/rs-social-simulation-tools
 	url = git@github.com:akitenkrad/rs-social-simulation-tools.git
 [submodule "replications/hegselmann2005"]
-	path = replications/hegselmann2005
-	url = git@github.com:akitenkrad/hegselmann2005.git
+	path = replications/rep-hegselmann2005
+	url = git@github.com:akitenkrad/rep-hegselmann2005.git
 [submodule "replications/granovetter1973"]
-	path = replications/granovetter1973
-	url = git@github.com:akitenkrad/granovetter1973.git
+	path = replications/rep-granovetter1973
+	url = git@github.com:akitenkrad/rep-granovetter1973.git
 [submodule "replications/chuang2024"]
-	path = replications/chuang2024
-	url = git@github.com:akitenkrad/chuang2024.git
+	path = replications/rep-chuang2024
+	url = git@github.com:akitenkrad/rep-chuang2024.git
 [submodule "replications/li2024"]
-	path = replications/li2024
-	url = git@github.com:akitenkrad/li2024.git
+	path = replications/rep-li2024
+	url = git@github.com:akitenkrad/rep-li2024.git
 [submodule "replications/gao2023"]
-	path = replications/gao2023
-	url = git@github.com:akitenkrad/gao2023.git
+	path = replications/rep-gao2023
+	url = git@github.com:akitenkrad/rep-gao2023.git
 [submodule "replications/ren2024"]
-	path = replications/ren2024
-	url = git@github.com:akitenkrad/ren2024.git
+	path = replications/rep-ren2024
+	url = git@github.com:akitenkrad/rep-ren2024.git
 [submodule "replications/zhao2024"]
-	path = replications/zhao2024
-	url = git@github.com:akitenkrad/zhao2024.git
+	path = replications/rep-zhao2024
+	url = git@github.com:akitenkrad/rep-zhao2024.git
 [submodule "replications/hua2024"]
-	path = replications/hua2024
-	url = git@github.com:akitenkrad/hua2024.git
+	path = replications/rep-hua2024
+	url = git@github.com:akitenkrad/rep-hua2024.git
 [submodule "replications/yang2024"]
-	path = replications/yang2024
-	url = git@github.com:akitenkrad/yang2024.git
+	path = replications/rep-yang2024
+	url = git@github.com:akitenkrad/rep-yang2024.git
 [submodule "replications/mou2024"]
-	path = replications/mou2024
-	url = git@github.com:akitenkrad/mou2024.git
+	path = replications/rep-mou2024
+	url = git@github.com:akitenkrad/rep-mou2024.git
 [submodule "replications/wang2025"]
-	path = replications/wang2025
-	url = git@github.com:akitenkrad/wang2025.git
+	path = replications/rep-wang2025
+	url = git@github.com:akitenkrad/rep-wang2025.git
 [submodule "replications/han2023"]
-	path = replications/han2023
-	url = git@github.com:akitenkrad/han2023.git
+	path = replications/rep-han2023
+	url = git@github.com:akitenkrad/rep-han2023.git
 [submodule "replications/ji2024"]
-	path = replications/ji2024
-	url = git@github.com:akitenkrad/ji2024.git
+	path = replications/rep-ji2024
+	url = git@github.com:akitenkrad/rep-ji2024.git
 [submodule "replications/hegselmann2002"]
-	path = replications/hegselmann2002
-	url = git@github.com:akitenkrad/hegselmann2002.git
+	path = replications/rep-hegselmann2002
+	url = git@github.com:akitenkrad/rep-hegselmann2002.git
 [submodule "replications/knoll2013"]
-	path = replications/knoll2013
-	url = git@github.com:akitenkrad/knoll2013.git
+	path = replications/rep-knoll2013
+	url = git@github.com:akitenkrad/rep-knoll2013.git
 [submodule "replications/brinsfield2013"]
-	path = replications/brinsfield2013
-	url = git@github.com:akitenkrad/brinsfield2013.git
+	path = replications/rep-brinsfield2013
+	url = git@github.com:akitenkrad/rep-brinsfield2013.git
 [submodule "replications/detert2011"]
-	path = replications/detert2011
-	url = git@github.com:akitenkrad/detert2011.git
+	path = replications/rep-detert2011
+	url = git@github.com:akitenkrad/rep-detert2011.git
 [submodule "replications/edmondson1999"]
-	path = replications/edmondson1999
-	url = git@github.com:akitenkrad/edmondson1999.git
+	path = replications/rep-edmondson1999
+	url = git@github.com:akitenkrad/rep-edmondson1999.git
 [submodule "replications/noelleneumann1974"]
-	path = replications/noelleneumann1974
-	url = git@github.com:akitenkrad/noelleneumann1974.git
+	path = replications/rep-noelleneumann1974
+	url = git@github.com:akitenkrad/rep-noelleneumann1974.git
 [submodule "replications/fujimura2019"]
-	path = replications/fujimura2019
-	url = git@github.com:akitenkrad/fujimura2019.git
+	path = replications/rep-fujimura2019
+	url = git@github.com:akitenkrad/rep-fujimura2019.git
 [submodule "replications/argyle2023"]
-	path = replications/argyle2023
-	url = git@github.com:akitenkrad/argyle2023.git
+	path = replications/rep-argyle2023
+	url = git@github.com:akitenkrad/rep-argyle2023.git
 [submodule "replications/sun2024"]
-	path = replications/sun2024
-	url = git@github.com:akitenkrad/sun2024.git
+	path = replications/rep-sun2024
+	url = git@github.com:akitenkrad/rep-sun2024.git
 [submodule "replications/gong2026"]
-	path = replications/gong2026
-	url = git@github.com:akitenkrad/gong2026.git
+	path = replications/rep-gong2026
+	url = git@github.com:akitenkrad/rep-gong2026.git
 [submodule "replications/jones2022"]
-	path = replications/jones2022
-	url = git@github.com:akitenkrad/jones2022.git
+	path = replications/rep-jones2022
+	url = git@github.com:akitenkrad/rep-jones2022.git
 [submodule "simulators/rs-runvault-socsim"]
 	path = simulators/rs-runvault-socsim
 	url = git@github.com:akitenkrad/rs-runvault-socsim.git
 [submodule "experiments/dollar-auction-escalation"]
-	path = experiments/dollar-auction-escalation
-	url = git@github.com:akitenkrad/dollar-auction-escalation.git
+	path = experiments/exp-dollar-auction-escalation
+	url = git@github.com:akitenkrad/exp-dollar-auction-escalation.git
 [submodule "experiments/ipd-strategies"]
-	path = experiments/ipd-strategies
-	url = git@github.com:akitenkrad/ipd-strategies.git
+	path = experiments/exp-ipd-strategies
+	url = git@github.com:akitenkrad/exp-ipd-strategies.git
 [submodule "experiments/fifo-tic-tac-toe"]
-	path = experiments/fifo-tic-tac-toe
-	url = git@github.com:akitenkrad/fifo-tic-tac-toe.git
+	path = experiments/exp-fifo-tic-tac-toe
+	url = git@github.com:akitenkrad/exp-fifo-tic-tac-toe.git
 [submodule "experiments/correlated-jury-theorem"]
-	path = experiments/correlated-jury-theorem
-	url = git@github.com:akitenkrad/correlated-jury-theorem.git
+	path = experiments/exp-correlated-jury-theorem
+	url = git@github.com:akitenkrad/exp-correlated-jury-theorem.git
 [submodule "experiments/rumor-forgetting"]
-	path = experiments/rumor-forgetting
-	url = git@github.com:akitenkrad/rumor-forgetting.git
+	path = experiments/exp-rumor-forgetting
+	url = git@github.com:akitenkrad/exp-rumor-forgetting.git

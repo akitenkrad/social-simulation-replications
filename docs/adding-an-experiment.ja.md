@@ -117,11 +117,11 @@ git commit -m "Add <key> experiment"
 
 ## Run の記録
 
-runvault 連携はテンプレートに含まれない．`replications/schelling1971/` の `runvault.toml`，Rust の `runvault` 依存関係，Python の `runvault[read]` 依存関係を参照して追加する．開発，デバッグ，スモークテストの実行では常に `--scratch` を渡す．scratch run は `results/_scratch/` に保存され，同期されない．
+runvault 連携はテンプレートに含まれない．`replications/rep-schelling1971/` の `runvault.toml`，Rust の `runvault` 依存関係，Python の `runvault[read]` 依存関係を参照して追加する．開発，デバッグ，スモークテストの実行では常に `--scratch` を渡す．scratch run は `results/_scratch/` に保存され，同期されない．
 
 ## 留意点
 
 - `{{NAME}}` が未置換のテンプレート状態では単独実行できない．
 - 雛形の作成後に，プロジェクト固有のシミュレーションロジックと分析コマンドを実装する．
 - `_claude/` は親リポジトリの `.gitignore` を回避するための仮名である．コピー後は必ず `.claude/` にリネームする．
-- 共通雛形と runvault 連携の完成例は `replications/schelling1971/` を参照する．
+- 共通雛形と runvault 連携の完成例は `replications/rep-schelling1971/` を参照する．

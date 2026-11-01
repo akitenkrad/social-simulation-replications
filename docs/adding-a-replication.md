@@ -130,13 +130,13 @@ git commit -m "Add <paper_key> replication"
 ### Example: Axelrod (1997)
 
 ```bash
-cp -R template/files replications/axelrod1997
-find replications/axelrod1997 -type f -exec sed -i '' 's/{{NAME}}/axelrod/g' {} \;
-mv replications/axelrod1997/tools/src/_NAME_tools \
-   replications/axelrod1997/tools/src/axelrod_tools
-mv replications/axelrod1997/_claude replications/axelrod1997/.claude
+cp -R template/files replications/rep-axelrod1997
+find replications/rep-axelrod1997 -type f -exec sed -i '' 's/{{NAME}}/axelrod/g' {} \;
+mv replications/rep-axelrod1997/tools/src/_NAME_tools \
+   replications/rep-axelrod1997/tools/src/axelrod_tools
+mv replications/rep-axelrod1997/_claude replications/rep-axelrod1997/.claude
 
-cd replications/axelrod1997
+cd replications/rep-axelrod1997
 cargo build --release
 uv sync
 uv run axelrod-tools --help
@@ -147,7 +147,7 @@ uv run axelrod-tools --help
 - A file still in template form (`{{NAME}}` not yet substituted) cannot run on its own. In particular, Python import statements contain the placeholder, so even though the syntax is valid before substitution, it will raise a runtime error.
 - `simulation/src/main.rs` contains only the minimal skeleton branching between the clap `run` / `sweep` subcommands. The simulation logic is implemented per paper. `run` must write `<output_dir>/config.json` and `sweep` must write `<output_dir>/sweep_config.json` (read by `show-experiment-settings`). On the `sweep` side, provide a path that emits `snapshots/step_*.csv` for each run via `--snapshot-interval N` (N>0) (required by the per-combination grid animation of `visualize-sweep`).
 - `tools/src/<name>_tools/cli.py` is the dispatch skeleton for the `visualize` / `visualize-sweep` / `show-experiment-settings` subcommands. Add paper-specific subcommands such as `reproduce` as needed.
-- `visualize_sweep.py` is a TODO file holding only the CLI skeleton and design-guidance comments. Fill in the parameter-dependency plot and the per-combination grid animation (`sweep_grid_animation.gif`) per paper (reference implementation: `replications/schelling1971/`).
-- `show_experiment_settings.py` has only the general-purpose `--results-dir` mode. If you need to list paper-reproduction experiment definitions, create `reproduce_paper.py` and extend it by importing `Experiment` / `paper_experiments()` from there (see `replications/schelling1971/`).
+- `visualize_sweep.py` is a TODO file holding only the CLI skeleton and design-guidance comments. Fill in the parameter-dependency plot and the per-combination grid animation (`sweep_grid_animation.gif`) per paper (reference implementation: `replications/rep-schelling1971/`).
+- `show_experiment_settings.py` has only the general-purpose `--results-dir` mode. If you need to list paper-reproduction experiment definitions, create `reproduce_paper.py` and extend it by importing `Experiment` / `paper_experiments()` from there (see `replications/rep-schelling1971/`).
 - `_claude/` is a placeholder name to dodge the parent repository's `.gitignore` (which excludes all of `.claude/`). Always rename it to `.claude/` after copying.
-- See `replications/schelling1971/` for a reference implementation.
+- See `replications/rep-schelling1971/` for a reference implementation.

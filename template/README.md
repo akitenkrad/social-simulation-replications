@@ -72,13 +72,13 @@ uv run <name>-tools --help
 ### 例: Axelrod (1997)
 
 ```bash
-cp -R template/files replications/axelrod1997
-find replications/axelrod1997 -type f -exec sed -i '' 's/{{NAME}}/axelrod/g' {} \;
-mv replications/axelrod1997/tools/src/_NAME_tools \
-   replications/axelrod1997/tools/src/axelrod_tools
-mv replications/axelrod1997/_claude replications/axelrod1997/.claude
+cp -R template/files replications/rep-axelrod1997
+find replications/rep-axelrod1997 -type f -exec sed -i '' 's/{{NAME}}/axelrod/g' {} \;
+mv replications/rep-axelrod1997/tools/src/_NAME_tools \
+   replications/rep-axelrod1997/tools/src/axelrod_tools
+mv replications/rep-axelrod1997/_claude replications/rep-axelrod1997/.claude
 
-cd replications/axelrod1997
+cd replications/rep-axelrod1997
 cargo build --release
 uv sync
 uv run axelrod-tools --help
@@ -89,7 +89,7 @@ uv run axelrod-tools --help
 - テンプレート状態のファイル（`{{NAME}}` 未置換）は単独で実行できない．特に Python の import 文に placeholder が含まれるため，置換前は構文上有効でもランタイムエラーになる．
 - `simulation/src/main.rs` には clap の `run` / `sweep` サブコマンド分岐の最小骨格だけが含まれる．シミュレーションロジックは各プロジェクトで実装する．`run` は `<output_dir>/config.json`，`sweep` は `<output_dir>/sweep_config.json` を必ず書き出すこと（`show-experiment-settings` が読む）．`sweep` 側に `--snapshot-interval N` (N>0) で各 run の `snapshots/step_*.csv` を出力する経路を用意しておくこと（`visualize-sweep` の組み合わせ別グリッドアニメーションが必要とする）．
 - `tools/src/<name>_tools/cli.py` は `visualize` / `visualize-sweep` / `show-experiment-settings` サブコマンドへのディスパッチ骨格．プロジェクト固有のサブコマンドは必要に応じて追加する．
-- `visualize_sweep.py` は CLI 骨格と設計指針コメントだけを持つ TODO ファイル．パラメータ依存図と組み合わせ別グリッドアニメーション (`sweep_grid_animation.gif`) の実装は各プロジェクトで埋める（参考実装: `replications/schelling1971/`）．
-- `show_experiment_settings.py` は汎用の `--results-dir` モードのみを持つ．Replication で論文再現実験定義の一覧表示が必要な場合に限り，`reproduce_paper.py` を作成し，そこから `Experiment` / `paper_experiments()` をインポートして拡張する（`replications/schelling1971/` 参照）．
+- `visualize_sweep.py` は CLI 骨格と設計指針コメントだけを持つ TODO ファイル．パラメータ依存図と組み合わせ別グリッドアニメーション (`sweep_grid_animation.gif`) の実装は各プロジェクトで埋める（参考実装: `replications/rep-schelling1971/`）．
+- `show_experiment_settings.py` は汎用の `--results-dir` モードのみを持つ．Replication で論文再現実験定義の一覧表示が必要な場合に限り，`reproduce_paper.py` を作成し，そこから `Experiment` / `paper_experiments()` をインポートして拡張する（`replications/rep-schelling1971/` 参照）．
 - `_claude/` は親リポジトリの `.gitignore`（`.claude/` 全体を除外）を回避するための仮名．コピー後は必ず `.claude/` にリネームすること．
-- 共通構成のリファレンス実装は `replications/schelling1971/` を参照．
+- 共通構成のリファレンス実装は `replications/rep-schelling1971/` を参照．
